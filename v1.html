@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iceland Ring Road — 5-Day Camper Trip · Aug 14–18</title>
+<style>
+  :root{
+    --basalt:#0f1419; --basalt-2:#1a1f27; --ash:#262e37;
+    --glacier:#7fb8d6; --glacier-bright:#a6d8ef; --aurora:#6fd39a;
+    --moss:#8a9a6b; --bone:#e8e4da; --bone-dim:#a8a59d;
+    --line:#333c46; --warn:#e0a45e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--basalt);color:var(--bone);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .util{font-family:"SF Mono",ui-monospace,"Cascadia Mono",Menlo,Consolas,monospace;}
+
+  header.hero{padding:clamp(2.5rem,6vw,5rem) clamp(1.2rem,5vw,4rem) clamp(2rem,4vw,3rem);
+    border-bottom:1px solid var(--line);
+    background:radial-gradient(120% 80% at 80% -10%, rgba(111,211,154,.10), transparent 60%),
+      radial-gradient(90% 70% at 0% 0%, rgba(127,184,214,.10), transparent 55%);}
+  .eyebrow{font-family:"SF Mono",monospace;font-size:.72rem;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--aurora);margin-bottom:1.1rem;}
+  h1{font-size:clamp(2.4rem,7vw,5.2rem);font-weight:400;line-height:.98;letter-spacing:-.01em;}
+  h1 em{font-style:italic;color:var(--glacier-bright);}
+  .sub{margin-top:1.2rem;max-width:60ch;color:var(--bone-dim);font-size:clamp(1rem,2.2vw,1.18rem);}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:1.6rem 2.4rem;margin-top:2rem;
+    font-family:"SF Mono",monospace;font-size:.82rem;letter-spacing:.04em;color:var(--bone-dim);}
+  .hero-meta b{display:block;color:var(--bone);font-size:1.4rem;margin-top:.2rem;font-family:"SF Mono",monospace;}
+  .parks{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.2rem;}
+  .park-chip{display:flex;align-items:center;gap:.55rem;border:1px solid var(--line);
+    border-radius:999px;padding:.45rem 1rem .45rem .7rem;font-size:.85rem;background:var(--basalt-2);}
+  .park-chip .dot{width:.7rem;height:.7rem;border-radius:50%;flex:none;}
+  .park-chip.hit .dot{background:var(--aurora);box-shadow:0 0 0 3px rgba(111,211,154,.18);}
+  .park-chip.miss .dot{background:var(--warn);box-shadow:0 0 0 3px rgba(224,164,94,.16);}
+  .park-chip small{color:var(--bone-dim);font-family:"SF Mono",monospace;font-size:.68rem;letter-spacing:.05em;}
+
+  .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:start;}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr;}}
+  .map-col{position:sticky;top:0;height:100vh;}
+  @media(max-width:900px){.map-col{position:relative;height:64vh;top:auto;}}
+  #map{width:100%;height:100vh;background:var(--basalt-2);}
+  @media(max-width:900px){#map{height:64vh;}}
+
+  .daytabs{position:absolute;z-index:5;top:14px;left:14px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 28px);}
+  .daytab{font-family:"SF Mono",monospace;font-size:.78rem;letter-spacing:.02em;
+    background:rgba(26,31,39,.92);color:var(--bone);border:1px solid var(--line);
+    border-radius:999px;padding:.4rem .85rem;cursor:pointer;backdrop-filter:blur(6px);transition:all .15s;}
+  .daytab:hover{border-color:var(--glacier);}
+  .daytab.active{background:var(--bone);color:var(--basalt);border-color:var(--bone);font-weight:600;}
+
+  .drivebar{position:absolute;z-index:5;bottom:14px;left:14px;
+    background:rgba(26,31,39,.92);border:1px solid var(--line);border-radius:10px;
+    padding:.55rem .9rem;backdrop-filter:blur(6px);font-family:"SF Mono",monospace;
+    font-size:.74rem;color:var(--bone-dim);max-width:calc(100% - 28px);}
+  .drivebar b{color:var(--aurora);}
+  .drivebar.hidden{display:none;}
+
+  .gm-pin{transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;
+    border:2px solid #0f1419;display:flex;align-items:center;justify-content:center;
+    font:600 12px/1 "SF Mono",monospace;color:#0f1419;box-shadow:0 1px 5px rgba(0,0,0,.5);cursor:pointer;}
+
+  .itin{padding:clamp(1.4rem,3vw,2.6rem) clamp(1.2rem,4vw,3rem) 4rem;}
+  .day{margin-bottom:2.6rem;scroll-margin-top:1rem;}
+  .day-head{display:flex;align-items:baseline;gap:.9rem;border-bottom:1px solid var(--line);
+    padding-bottom:.6rem;margin-bottom:1.1rem;cursor:pointer;flex-wrap:wrap;}
+  .day-num{font-family:"SF Mono",monospace;font-size:.8rem;letter-spacing:.1em;color:var(--basalt);
+    border-radius:5px;padding:.2rem .55rem;flex:none;}
+  .day-title{font-size:1.45rem;font-weight:400;}
+  .day-title em{font-style:italic;color:var(--glacier-bright);}
+  .day-date{margin-left:auto;font-family:"SF Mono",monospace;font-size:.74rem;color:var(--bone-dim);white-space:nowrap;}
+  .day-drive{font-family:"SF Mono",monospace;font-size:.72rem;color:var(--moss);margin-bottom:1rem;}
+  .stop{display:grid;grid-template-columns:auto 1fr;gap:.1rem 1rem;padding:.65rem 0;
+    border-bottom:1px solid rgba(51,60,70,.5);cursor:pointer;transition:background .15s;}
+  .stop:hover{background:rgba(127,184,214,.06);}
+  .stop:hover .stop-name{color:var(--glacier-bright);}
+  .stop-pin{grid-row:1/3;width:1.7rem;height:1.7rem;border-radius:50%;display:flex;
+    align-items:center;justify-content:center;font-family:"SF Mono",monospace;font-size:.78rem;
+    font-weight:600;color:var(--basalt);flex:none;margin-top:.15rem;}
+  .stop-name{font-size:1.05rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+  .stop-time{font-family:"SF Mono",monospace;font-size:.68rem;color:var(--bone-dim);}
+  .stop-note{font-size:.88rem;color:var(--bone-dim);margin-top:.15rem;max-width:60ch;}
+  .tag{font-family:"SF Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+    padding:.12rem .42rem;border-radius:4px;}
+  .tag.added{background:rgba(111,211,154,.16);color:var(--aurora);border:1px solid rgba(111,211,154,.3);}
+  .tag.moved{background:rgba(127,184,214,.14);color:var(--glacier);border:1px solid rgba(127,184,214,.3);}
+  .tag.warn{background:rgba(224,164,94,.14);color:var(--warn);border:1px solid rgba(224,164,94,.3);}
+  .tag.park{background:rgba(138,154,107,.16);color:var(--moss);border:1px solid rgba(138,154,107,.32);}
+  .tag.base{background:var(--ash);color:var(--bone-dim);border:1px solid var(--line);}
+  .panel{background:var(--basalt-2);border:1px solid var(--line);border-radius:10px;padding:1.4rem 1.5rem;margin-top:2.4rem;}
+  .panel h3{font-size:1.05rem;font-weight:400;margin-bottom:.9rem;color:var(--glacier-bright);}
+  .panel ul{list-style:none;}
+  .panel li{padding:.45rem 0;border-bottom:1px solid rgba(51,60,70,.5);font-size:.92rem;color:var(--bone-dim);display:flex;gap:.6rem;}
+  .panel li:last-child{border-bottom:none;}
+  .panel li::before{content:"\203A";color:var(--aurora);flex:none;}
+  .panel li b{color:var(--bone);}
+
+  .gm-info{font-family:"Iowan Old Style",Georgia,serif;color:#1a1f27;max-width:280px;}
+  .gm-info h4{font-size:1.05rem;margin:0 0 .15rem;}
+  .gm-info .gm-day{font-family:"SF Mono",monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#5a6470;}
+  .gm-info .gm-r{font-family:"SF Mono",monospace;font-size:.74rem;color:#5a6470;margin:.2rem 0 .5rem;}
+  .gm-info .gm-note{font-size:.85rem;line-height:1.4;}
+  .gm-info a{display:inline-block;margin-top:.5rem;font-family:"SF Mono",monospace;font-size:.72rem;color:#1565a0;text-decoration:none;}
+
+  footer{padding:2rem clamp(1.2rem,4vw,3rem) 3rem;border-top:1px solid var(--line);
+    color:var(--bone-dim);font-size:.8rem;font-family:"SF Mono",monospace;}
+  .keywarn{background:rgba(224,164,94,.1);border:1px solid var(--warn);color:var(--warn);
+    padding:1rem 1.2rem;margin:1rem clamp(1.2rem,4vw,3rem);border-radius:8px;
+    font-family:"SF Mono",monospace;font-size:.8rem;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Campervan &middot; Booking PAUT2577 &middot; Aug 14&ndash;18</div>
+  <h1>The Ring Road,<br><em>south &amp; golden.</em></h1>
+  <p class="sub">A clockwise camper loop from Keflav&iacute;k down the South Coast to the glacier lagoon, then back through the Golden Circle. Waterfalls, black sand, icebergs, geysers &mdash; and two of Iceland's three national parks along the way.</p>
+  <div class="hero-meta">
+    <div>Days<b>5</b></div><div>Stops<b>22</b></div>
+    <div>Total drive<b>~15 hrs</b></div><div>Dates<b>14&ndash;18 AUG</b></div>
+  </div>
+  <div class="parks">
+    <div class="park-chip hit"><span class="dot"></span>&THORN;ingvellir <small>DAY 4 &check;</small></div>
+    <div class="park-chip hit"><span class="dot"></span>Vatnaj&ouml;kull <small>DAY 2 &check; (Skaftafell)</small></div>
+    <div class="park-chip miss"><span class="dot"></span>Sn&aelig;fellsj&ouml;kull <small>NEEDS +1 DAY</small></div>
+  </div>
+</header>
+
+<div id="keywarn" class="keywarn" style="display:none;">
+  ⚠ No Google Maps API key set. Replace <b>YOUR_API_KEY_HERE</b> in this file's last &lt;script&gt; tag
+  with your key (Maps JavaScript API + Directions API enabled). The itinerary below works regardless.
+</div>
+
+<div class="wrap">
+  <div class="map-col">
+    <div class="daytabs" id="daytabs"></div>
+    <div id="map"></div>
+    <div class="drivebar hidden" id="drivebar"></div>
+  </div>
+  <div class="itin" id="itin"></div>
+</div>
+
+<footer>Map &copy; Google &middot; Driving routes via Google Directions &middot; Click any stop to fly there. &middot; Built as a shareable plan.</footer>
+
+<script>
+const DAY_COLORS = ['#7fb8d6','#6fd39a','#c9a96a','#b58bd6','#e0a45e'];
+
+const DAYS = [
+  {n:1,title:'KEF to V&iacute;k &mdash; <em>Waterfall Alley</em>',date:'THU 14 AUG',drive:'~3 hrs driving &middot; full day',
+   narr:'Pick up the camper and head east on Route 1. Four world-class waterfalls in a row, a hot-spring soak, then the black-sand beach at V&iacute;k.',
+   stops:[
+    {nm:'Keflav&iacute;k Airport (KEF)',t:'9:00 AM',r:'3.9 ★ (11,049) · Airport',ll:[63.9814869,-22.6281862],note:'Pick up campervan. Buy duty-free alcohol here — far cheaper than in town. Grab cash + a local SIM (Síminn/Nova) before leaving.',tag:['base','Start']},
+    {nm:'Seljalandsfoss',t:'11:30 AM',r:'4.8 ★ (3,411) · Waterfall',ll:[63.6156232,-19.9885688],note:'The one you can walk BEHIND. You will get soaked — full rain gear. Paid parking.'},
+    {nm:'Gljúfrabúi',t:'12:30 PM',r:'4.9 ★ (5,358) · Hidden falls',ll:[63.6208631,-19.9864486],note:'Hidden falls in a canyon, same parking lot — 12-min walk. Waterproof boots; you rock-hop a creek to get in.'},
+    {nm:'Seljavallalaug Pool',t:'1:30 PM',r:'4.0 ★ (1,215) · Pool',ll:[63.5659791,-19.6091423],note:'Historic pool hidden in a valley, 20-min walk in. Lukewarm, not hot. Rough changing rooms. Skip if running late.'},
+    {nm:'Skógafoss',t:'3:00 PM',r:'4.9 ★ (4,369) · Waterfall',ll:[63.5320523,-19.5113706],note:'Massive and thunderous, rainbows on sunny days. Climb the stairs to the top viewpoint.'},
+    {nm:'Reynisfjara Black Beach',t:'5:00 PM',r:'4.8 ★ (2,437) · Beach',ll:[63.4142559,-19.0104132],note:'Moved here from Day 3 — it sits right at Vík. Basalt columns + sea stacks. DANGER: sneaker waves kill people here. Never turn your back on the ocean.',tag:['moved','Moved from Day 3']},
+    {nm:'Vík Camping',t:'6:00 PM',r:'3.7 ★ (3,056) · Campground',ll:[63.419288,-18.995537],note:'Night 1 base. Large, clean, cozy common kitchen. Showers ~300kr (coins at reception). Crowded in summer.',tag:['base','Night 1']}
+   ]},
+  {n:2,title:'V&iacute;k to Hof &mdash; <em>Canyons, Glaciers &amp; Icebergs</em>',date:'FRI 15 AUG',drive:'~2.5 hrs driving',
+   narr:'The most dramatic day. A slot canyon, the Vatnaj&ouml;kull glacier area, then the famous iceberg lagoon and Diamond Beach.',
+   stops:[
+    {nm:'Fjaðrárgljúfur Canyon',t:'10:00 AM',r:'4.8 ★ (6,389) · Canyon',ll:[63.771279,-18.1718159],note:'Serpentine slot canyon (the "Justin Bieber canyon"). ~20-min walk up to viewpoints. Pay parking or get fined.'},
+    {nm:'Skaftafell Glacier',t:'12:00 PM',r:'4.8 ★ (255) · Glacier',ll:[64.0268002,-16.9171872],note:'Part of VATNAJÖKULL NATIONAL PARK. ~3.5km hike to the glacier tongue. Guided ice walks bookable here (crampons provided).',tag:['park','Vatnajökull NP']},
+    {nm:'Svartifoss',t:'12:30 PM',r:'4.7 ★ (5,725) · Waterfall',ll:[64.0275282,-16.9753082],note:'The "black waterfall" over hexagonal basalt columns — same Skaftafell trailhead. ~2mi round trip. Pair with the glacier hike.',tag:['park','Vatnajökull NP']},
+    {nm:'Jökulsárlón Glacier Lagoon',t:'3:30 PM',r:'4.9 ★ (2,979) · Glacier lagoon',ll:[64.0784458,-16.2305536],note:'Icebergs calving off the glacier drift across the lagoon. Watch for seals. Boat tours available. A trip highlight.'},
+    {nm:'Diamond Beach',t:'4:45 PM',r:'4.8 ★ (4,950) · Beach',ll:[64.044334,-16.1776622],note:'Ice chunks wash up like diamonds on black sand. Go at LOW TIDE for the classic look. Across the road from the lagoon.'},
+    {nm:'Svínafell Campground',t:'6:30 PM',r:'4.4 ★ (1,050) · Campground',ll:[63.9790093,-16.8536533],note:'Night 2 base — repeatedly called the best site on the South Coast. ~$12pp. Great kitchen, clean showers, dark-sky views. ~50 min back west of the lagoon.',tag:['base','Night 2']}
+   ]},
+  {n:3,title:'Hof toward the Golden Circle',date:'SAT 16 AUG',drive:'~3.5&ndash;4 hrs driving',
+   narr:'Your longest drive, heading back west. Light on stops by design — a transit day to position you for the Golden Circle. Fuel up; long gaps between stations.',
+   stops:[
+    {nm:'Kerið Crater',t:'2:30 PM',r:'4.5 ★ (19,938) · Crater',ll:[64.0412785,-20.8851466],note:'Volcanic crater lake with a red rim — small entry fee. Walk the rim + down to the water. Toilets close 9pm.'},
+    {nm:'Secret Lagoon (Flúðir)',t:'4:00 PM',r:'4.6 ★ (8,755) · Hot spring',ll:[64.1373976,-20.3096984],note:"Iceland's oldest pool — less touristy than Blue/Sky, ~$35pp. Reservation recommended. Camp nearby in Flúðir for Night 3.",tag:['base','Night 3 nearby']}
+   ]},
+  {n:4,title:'The <em>Golden Circle</em>',date:'SUN 17 AUG',drive:'~4 hrs across stops',
+   narr:"The classic trio plus a blue-water bonus. This is where Þingvellir and Geysir got added — they're the heart of the Golden Circle and were missing from the draft.",
+   stops:[
+    {nm:'Brúarfoss',t:'9:00 AM',r:'4.8 ★ (3,980) · Waterfall',ll:[64.2643026,-20.5157467],note:"Unreal turquoise-blue water. There's now a closer parking lot — check the current trail before committing to the long river hike."},
+    {nm:'Gullfoss Falls',t:'11:00 AM',r:'4.9 ★ (5,546) · Waterfall',ll:[64.3270716,-20.1199478],note:'The "Golden Falls" — a thundering two-tier monster. Upper + lower platforms. Café on site for lunch.'},
+    {nm:'Strokkur Geyser',t:'12:15 PM',r:'4.7 ★ (13,366) · Geyser',ll:[64.3127094,-20.300721],note:'Added — was missing from the draft. Erupts every 5–10 min, up to 30m. Free (pay parking). Walk uphill for the geothermal field view.',tag:['added','Added']},
+    {nm:'Þingvellir National Park',t:'2:00 PM',r:'4.7 ★ (24,188) · National park',ll:[64.2821725,-21.0764491],note:'Added — the big gap in the plan. Walk between the North American & Eurasian tectonic plates; site of the original Icelandic parliament. Pay parking ~1000kr.',tag:['added','Added · Þingvellir NP']},
+    {nm:'Reykjadalur Hot River',t:'4:30 PM',r:'4.7 ★ (5,132) · Thermal river',ll:[64.0218948,-21.2111691],note:"Bathe in a naturally hot river — but it's a ~3km uphill hike each way (first km steep). Towel + water shoes. ~2–3 hrs round trip; may run out of daylight. Camp in Hveragerði for Night 4.",tag:['warn','Long hike']}
+   ]},
+  {n:5,title:'Lagoon Day &amp; <em>Departure</em>',date:'MON 18 AUG',drive:'flexible',
+   narr:"Soak, then return the camper and fly out. Don't try both lagoons — they're in opposite directions. Your 8am Blue Lagoon booking is 20 min from KEF, so that's the logical pick.",
+   stops:[
+    {nm:'Blue Lagoon',t:'8:00 AM',r:'4.6 ★ (31,948) · Spa',ll:[63.8807176,-22.4472963],note:"Your 8am reservation. Iconic but pricey + crowded. Big plus: it's ~20 min from KEF, so it's the logical pre-flight soak. Book the package with the facial + drink.",tag:['base','Reservation']},
+    {nm:'Sky Lagoon (alternative)',t:'—',r:'4.7 ★ (9,006) · Spa',ll:[64.1164891,-21.9462908],note:'ALTERNATIVE, not in addition: infinity edge over the ocean, near Reykjavík. Nicer per many reviewers but the wrong direction from the airport. Pick one.',tag:['warn','Pick one'],noRoute:true},
+    {nm:'Mjódd — Luggage Storage',t:'12:00 PM',r:'Bus terminal',ll:[64.109702,-21.842643],note:'Luggage storage between camper return and your flight. Netto 24/7 supermarket nearby for last supplies.',tag:['base','Storage']},
+    {nm:'Keflavík Airport (KEF)',t:'2:00 PM',r:'3.9 ★ (11,049) · Airport',ll:[63.9814869,-22.6281862],note:'Return campervan + fly out. Leave a buffer for the fuel-up and rental shuttle.',tag:['base','End']}
+   ]}
+];
+
+let gi=0;
+DAYS.forEach((d,di)=>d.stops.forEach(s=>{s._idx=++gi;s._di=di;s._day=d.n;s._color=DAY_COLORS[di];}));
+const FLAT = DAYS.flatMap(d=>d.stops);
+
+// ---------- Build the itinerary list (works with or without the map) ----------
+const itin=document.getElementById('itin');
+DAYS.forEach(function(day,di){
+  const color=DAY_COLORS[di];
+  const el=document.createElement('section'); el.className='day';
+  let stops='';
+  day.stops.forEach(function(s){
+    const tag=s.tag?'<span class="tag '+s.tag[0]+'">'+s.tag[1]+'</span>':'';
+    stops+='<div class="stop" data-idx="'+s._idx+'">'+
+      '<div class="stop-pin" style="background:'+color+'">'+s._idx+'</div>'+
+      '<div class="stop-name">'+s.nm+' '+tag+' <span class="stop-time util">'+s.t+'</span></div>'+
+      '<div class="stop-note">'+s.note+'</div></div>';
+  });
+  el.innerHTML='<div class="day-head" data-firstidx="'+day.stops[0]._idx+'" data-day="'+day.n+'">'+
+      '<span class="day-num" style="background:'+color+'">DAY '+day.n+'</span>'+
+      '<span class="day-title">'+day.title+'</span>'+
+      '<span class="day-date util">'+day.date+'</span></div>'+
+    '<div class="day-drive">▸ '+day.drive+'</div>'+
+    '<div class="day-narr">'+day.narr+'</div>'+stops;
+  itin.appendChild(el);
+});
+const panel=document.createElement('div'); panel.className='panel';
+panel.innerHTML='<h3>Before you go</h3><ul>'+
+  '<li><b>Phone:</b> skip AT&amp;T roaming — buy a local Síminn/Nova SIM or eSIM. Good coverage on the Ring Road.</li>'+
+  '<li><b>Cash:</b> grab some at KEF for small spots (e.g. Hrunalaug hot spring).</li>'+
+  '<li><b>Confirm camper pickup time</b> with the rental (booking PAUT2577).</li>'+
+  '<li><b>Reservations:</b> Blue Lagoon (have 8am), Secret Lagoon recommended.</li>'+
+  '<li><b>Third national park:</b> Snæfellsjökull needs a +1 day — northwest, off this loop.</li>'+
+  '<li><b>Food:</b> buy breakfasts + dinners at Krónan/Bónus; lunch on the road at waterfall cafés.</li></ul>';
+itin.appendChild(panel);
+
+// ---------- Day tabs ----------
+const tabsEl=document.getElementById('daytabs');
+let activeDay=0;
+function mkTab(label,dayN){
+  const b=document.createElement('button');
+  b.className='daytab'+(dayN===activeDay?' active':'');
+  b.textContent=label; b.onclick=function(){setDay(dayN);};
+  tabsEl.appendChild(b);
+}
+mkTab('All',0);
+DAYS.forEach(function(d){mkTab('Day '+d.n,d.n);});
+
+// ---------- Google Maps wiring (called by the API callback) ----------
+let map=null, gmarkers={}, infoWin=null, renderers=[], dayDrive={};
+const drivebar=document.getElementById('drivebar');
+
+const DARK_STYLE=[
+  {elementType:'geometry',stylers:[{color:'#1a1f27'}]},
+  {elementType:'labels.text.stroke',stylers:[{color:'#0f1419'}]},
+  {elementType:'labels.text.fill',stylers:[{color:'#a8a59d'}]},
+  {featureType:'water',elementType:'geometry',stylers:[{color:'#11202b'}]},
+  {featureType:'road',elementType:'geometry',stylers:[{color:'#2a323b'}]},
+  {featureType:'road',elementType:'labels.text.fill',stylers:[{color:'#8a9aa6'}]},
+  {featureType:'poi',elementType:'labels',stylers:[{visibility:'off'}]},
+  {featureType:'administrative',elementType:'geometry',stylers:[{color:'#333c46'}]},
+  {featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#171c23'}]}
+];
+
+function pinEl(s){
+  const d=document.createElement('div');
+  d.className='gm-pin'; d.style.background=s._color; d.textContent=s._idx;
+  return d;
+}
+function gmapsUrl(s){return 'https://www.google.com/maps/search/?api=1&query='+s.ll[0]+','+s.ll[1];}
+function infoHtml(s){
+  const rating=s.r.replace('★','★');
+  return '<div class="gm-info"><div class="gm-day">Day '+s._day+' · '+s.t+'</div>'+
+    '<h4>'+s.nm+'</h4><div class="gm-r">'+rating+'</div>'+
+    '<div class="gm-note">'+s.note+'</div>'+
+    '<a href="'+gmapsUrl(s)+'" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>';
+}
+
+function initMap(){
+  const g=google.maps;
+  map=new g.Map(document.getElementById('map'),{
+    center:{lat:64.05,lng:-19.6}, zoom:7, styles:DARK_STYLE,
+    mapTypeControl:true, streetViewControl:false, fullscreenControl:true,
+    backgroundColor:'#1a1f27',
+    mapTypeControlOptions:{style:g.MapTypeControlStyle.HORIZONTAL_BAR,
+      mapTypeIds:['roadmap','hybrid','terrain']}
+  });
+  infoWin=new g.InfoWindow();
+
+  FLAT.forEach(function(s){
+    const m=new g.Marker({
+      position:{lat:s.ll[0],lng:s.ll[1]}, map:map,
+      label:{text:String(s._idx),color:'#0f1419',fontFamily:'monospace',fontSize:'12px',fontWeight:'600'},
+      icon:{path:g.SymbolPath.CIRCLE,scale:13,fillColor:s._color,fillOpacity:1,strokeColor:'#0f1419',strokeWeight:2}
+    });
+    m.addListener('click',function(){openStop(s._idx);});
+    gmarkers[s._idx]=m;
+  });
+
+  // Draw real driving routes per day via the Directions service.
+  const ds=new g.DirectionsService();
+  DAYS.forEach(function(day,di){
+    const pts=day.stops.filter(function(s){return !s.noRoute;});
+    if(pts.length<2) return;
+    const origin={lat:pts[0].ll[0],lng:pts[0].ll[1]};
+    const dest={lat:pts[pts.length-1].ll[0],lng:pts[pts.length-1].ll[1]};
+    const waypoints=pts.slice(1,-1).map(function(s){return {location:{lat:s.ll[0],lng:s.ll[1]},stopover:true};});
+    ds.route({origin:origin,destination:dest,waypoints:waypoints,travelMode:g.TravelMode.DRIVING},
+      function(res,status){
+        if(status!=='OK'){return;}
+        let secs=0,meters=0;
+        res.routes[0].legs.forEach(function(l){secs+=l.duration.value;meters+=l.distance.value;});
+        dayDrive[day.n]={hrs:(secs/3600),km:(meters/1000)};
+        const rend=new g.DirectionsRenderer({
+          map:map, directions:res, suppressMarkers:true, preserveViewport:true,
+          polylineOptions:{strokeColor:DAY_COLORS[di],strokeOpacity:.0,strokeWeight:4,
+            icons:[{icon:{path:'M 0,-1 0,1',strokeColor:DAY_COLORS[di],strokeOpacity:.9,scale:3},offset:'0',repeat:'14px'}]}
+        });
+        renderers.push({di:di,rend:rend});
+        if(activeDay===day.n) updateDrivebar();
+      });
+  });
+
+  const b=new g.LatLngBounds();
+  FLAT.forEach(function(s){b.extend({lat:s.ll[0],lng:s.ll[1]});});
+  map.fitBounds(b,60);
+}
+window.initMap=initMap;
+
+function openStop(idx){
+  const s=FLAT.filter(function(x){return x._idx===idx;})[0];
+  if(!map){window.open(gmapsUrl(s),'_blank');return;}
+  const m=gmarkers[idx];
+  map.panTo(m.getPosition()); map.setZoom(11);
+  infoWin.setContent(infoHtml(s)); infoWin.open(map,m);
+  if(window.innerWidth<=900) document.getElementById('map').scrollIntoView({behavior:'smooth'});
+}
+
+function updateDrivebar(){
+  if(activeDay===0){drivebar.classList.add('hidden');return;}
+  const d=dayDrive[activeDay];
+  if(!d){drivebar.classList.add('hidden');return;}
+  drivebar.classList.remove('hidden');
+  drivebar.innerHTML='Day '+activeDay+' driving · <b>'+d.hrs.toFixed(1)+' hrs</b> · <b>'+Math.round(d.km)+' km</b> on roads';
+}
+
+function setDay(dayN){
+  activeDay=dayN;
+  Array.prototype.forEach.call(tabsEl.children,function(b,i){b.classList.toggle('active',i===dayN);});
+  if(map){
+    FLAT.forEach(function(s){gmarkers[s._idx].setMap((dayN===0||s._day===dayN)?map:null);});
+    renderers.forEach(function(r){r.rend.setMap((dayN===0||(r.di+1)===dayN)?map:null);});
+    const pts=FLAT.filter(function(s){return dayN===0||s._day===dayN;});
+    if(pts.length){
+      const b=new google.maps.LatLngBounds();
+      pts.forEach(function(s){b.extend({lat:s.ll[0],lng:s.ll[1]});});
+      map.fitBounds(b,80);
+    }
+    updateDrivebar();
+  }
+  document.querySelectorAll('.day').forEach(function(el,i){
+    el.style.display=(dayN===0||(i+1)===dayN)?'block':'none';
+  });
+}
+
+document.querySelectorAll('.stop').forEach(function(el){el.addEventListener('click',function(){openStop(+el.dataset.idx);});});
+document.querySelectorAll('.day-head').forEach(function(el){el.addEventListener('click',function(){openStop(+el.dataset.firstidx);});});
+
+// ---------- Load the Google Maps script (or show the key warning) ----------
+const API_KEY = "AIzaSyCOKJB3c7_aopQPP1gaEoQ0g6NQ_M9K5Tg";
+if(!API_KEY || API_KEY==="YOUR_API_KEY_HERE"){
+  document.getElementById('keywarn').style.display='block';
+  document.getElementById('map').innerHTML=
+    '<div style="height:100%;display:flex;align-items:center;justify-content:center;padding:2rem;text-align:center;color:#a8a59d;font-family:monospace;font-size:.85rem;line-height:1.6;">'+
+    'Add your Google Maps API key to enable the map.<br>The itinerary on the right works regardless.</div>';
+}else{
+  const sc=document.createElement('script');
+  sc.src='https://maps.googleapis.com/maps/api/js?key='+API_KEY+'&callback=initMap&v=weekly';
+  sc.async=true; sc.defer=true;
+  sc.onerror=function(){document.getElementById('keywarn').style.display='block';};
+  document.head.appendChild(sc);
+}
+</script>
+</body>
+</html>

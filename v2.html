@@ -204,13 +204,22 @@ function initMap(){
   });
 
   const ds=new g.DirectionsService();
+  function straightFallback(day,pts){
+    // Some stops are trailheads off-road; if Directions fails, draw a straight dashed line so a route always shows.
+    const line=new g.Polyline({path:pts.map(s=>({lat:s.ll[0],lng:s.ll[1]})),map:null,
+      strokeColor:'#4f9fff',strokeOpacity:0,
+      icons:[{icon:{path:'M 0,-1 0,1',strokeColor:'#4f9fff',strokeOpacity:.9,scale:3},offset:'0',repeat:'12px'}]});
+    dayRenderers[day.n]={setMap:function(m){line.setMap(m);}};
+    if(view.day===day.n)line.setMap(map);
+    if(view.mode==='day-intro'&&view.day===day.n)renderCard();
+  }
   DAYS.forEach(function(day){
     const pts=day.stops.filter(s=>!s.noRoute); if(pts.length<2) return;
     ds.route({origin:{lat:pts[0].ll[0],lng:pts[0].ll[1]},
       destination:{lat:pts[pts.length-1].ll[0],lng:pts[pts.length-1].ll[1]},
       waypoints:pts.slice(1,-1).map(s=>({location:{lat:s.ll[0],lng:s.ll[1]},stopover:true})),
       travelMode:g.TravelMode.DRIVING},function(res,st){
-        if(st!=='OK') return;
+        if(st!=='OK'){ straightFallback(day,pts); return; }
         let secs=0; res.routes[0].legs.forEach(l=>secs+=l.duration.value); dayDrive[day.n]=secs/3600;
         const rend=new g.DirectionsRenderer({map:null,directions:res,suppressMarkers:true,preserveViewport:true,
           polylineOptions:{strokeColor:'#4f9fff',strokeOpacity:.95,strokeWeight:4}});
