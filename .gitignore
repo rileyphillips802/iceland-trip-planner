@@ -1,0 +1,6 @@
+*.py
+places_data.json
+places_map.json
+places_accum.json
+place_data.js
+photos_manifest.js
