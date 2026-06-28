@@ -58,41 +58,49 @@
         "bedtime": "23:30",
         "wake": "08:30",
         "sleepHours": 9,
-        "note": "Night 1 base — large, clean campground in Vík. Late-evening rhythm: in after Skógafoss ~22:30, wind down, bed 23:30 → wake 08:30 (9h). Reynisfjara is 10 min away, so a 09:30 Day-2 start is relaxed."
+        "note": "Night 1 base — large, clean campground in Vík. Late-evening rhythm: in after Skógafoss, wind down, bed ~23:30 → wake 08:30 (9h). Reynisfjara is 10 min away, so a 09:00 Day-2 start is relaxed."
       },
-      "narr": "Land 9:30 AM, clear customs, pick up the camper (~11:30 AM). Soak off the red-eye at the Blue Lagoon, then head east on Route 1 for two of the South Coast's biggest waterfalls before the black-sand coast at Vík. Easy first day — you'll be jet-lagged, and the long evening light means no rush.",
+      "narr": "Land 9:30 AM, clear customs, ride to the depot and pick up the camper (~11:30 AM). Soak off the red-eye at the Blue Lagoon with a lobster-soup lunch in Grindavík, then head east on Route 1 for two of the South Coast's biggest waterfalls before the black-sand coast at Vík. Easy first day — you'll be jet-lagged, and the long evening light means no rush.",
       "stops": [
         {
-          "nm": "Keflavík Airport (KEF)",
+          "nm": "Keflavík Airport (KEF) — land & clear customs",
           "arrive": "09:30",
-          "duration": 120,
-          "driveToNext": null,
+          "duration": 60,
           "kind": "logistics",
           "ll": [
             63.9814869,
             -22.6281862
           ],
-          "note": "Land. Clear customs (allow 30–45 min, peak morning). Pick up campervan via depot shuttle — buy duty-free alcohol + grab a SIM here first. ~2 hrs from wheels-down to on the road."
+          "note": "Land DL246. Clear passport/customs (allow 30–45 min, peak morning). Before leaving the terminal: buy duty-free alcohol (cheapest in Iceland) at the arrivals Vínbúðin and grab a tourist SIM/eSIM. Then head out front to grab a ride to the camper depot."
         },
         {
-          "nm": "Breakfast: Kökulist Bakarí",
-          "arrive": "11:35",
-          "duration": 20,
-          "driveToNext": null,
+          "nm": "Camper Pickup: Reykjavik Depot (Fitjabraut 3)",
+          "arrive": "10:30",
+          "duration": 75,
           "kind": "logistics",
           "ll": [
-            63.978,
+            64.0064,
+            -22.565
+          ],
+          "cost": "taxi to depot ~5,000–7,000 ISK",
+          "book": "must",
+          "note": "🚐 PICK UP THE CAMPER — booking ref PAUT2577, Reykjavik Depot, Fitjabraut 3, 260 Keflavík (~5 min from terminal). NOTE: no complimentary airport shuttle from this depot — take a taxi/rideshare from the terminal front. At the depot: paperwork, insurance review, vehicle walkthrough + damage inspection (📸 photograph all existing dents before signing). Peak-July pickups can run slow (1–2 hr waits reported) — budget ~75 min and don't book a tight Blue Lagoon slot. Aim wheels-on-road ~11:45."
+        },
+        {
+          "nm": "Drive: Depot → Blue Lagoon",
+          "arrive": "11:45",
+          "duration": 20,
+          "kind": "drive",
+          "ll": [
+            63.93,
             -22.535
           ],
-          "cost": "$ (bakery)",
-          "book": "no",
-          "note": "🍳 POST-LANDING BREAKFAST — a real bakery, not airport food. Big pastry/bread selection, free coffee refills, local favorite in Njarðvík (Hólagata 17). Open daily 7:00–18:00, so it's ready when you roll off the red-eye. Right on the way from KEF toward the Blue Lagoon. (Alt: Sigurjónsbakarí in Keflavík.)"
+          "note": "Route 41 (Reykjanesbraut) → Route 43 (Grindavíkurvegur). ~22 km, ~20 min. If Rte 43 is closed for seismic activity, detour adds ~25 min — check road status that morning."
         },
         {
           "nm": "Blue Lagoon",
-          "arrive": "12:10",
-          "duration": 240,
-          "driveToNext": null,
+          "arrive": "12:05",
+          "duration": 210,
           "kind": "soak",
           "ll": [
             63.8807176,
@@ -101,13 +109,48 @@
           "cost": "~$100–130 pp",
           "book": "must",
           "bookNote": "MANDATORY timed entry — walk-ins never accepted. Sells out 3–4 weeks ahead for July. Comfort ticket from ~11,990 ISK but July midday slots run higher (dynamic pricing); cheapest slots are 8am or after 8pm Tue–Thu. Book NOW.",
-          "note": "Moved to arrival day — it's 20 min from KEF and the perfect post-red-eye soak. Quick bakery breakfast first, then book ~12:15 entry for buffer against customs delays. On-site luggage storage (~$6/bag) or leave bags in the camper. A long ~4 hr soak to reset after the red-eye. 🦞 LUNCH option ~10 min away in Grindavík: Bryggjan (famous lobster soup, reopened June 2025) — better than the on-site cafés; or Max's @ Northern Light Inn ~4 min away as the reliable fallback. Eat after your soak before heading east."
+          "parking": "Free, spacious on-site lot (cars + EV charging); ~5 min walk through the lava field to reception. No parking fee.",
+          "note": "Moved to arrival day — perfect post-red-eye soak. Book ~12:15 entry for buffer against customs/pickup delays. On-site luggage storage (~$6/bag) or leave bags locked in the camper. A long ~3.5 hr soak to reset, then lunch in Grindavík before heading east."
+        },
+        {
+          "nm": "Drive: Blue Lagoon → Grindavík",
+          "arrive": "15:35",
+          "duration": 8,
+          "kind": "drive",
+          "ll": [
+            63.848,
+            -22.433
+          ],
+          "note": "Route 43 south into Grindavík. ~6 km, ~6–8 min."
+        },
+        {
+          "nm": "Lunch: Bryggjan, Grindavík",
+          "arrive": "15:43",
+          "duration": 50,
+          "kind": "meal",
+          "ll": [
+            63.8378,
+            -22.4339
+          ],
+          "cost": "$$ (cafe)",
+          "book": "no",
+          "note": "🦞 LUNCH — famous lobster soup, harbourside cafe (reopened June 2025), better than the on-site Blue Lagoon cafés. Eat after your soak, then fuel up before the long drive east. (Reliable fallback: Max's @ Northern Light Inn, ~4 min away.)"
+        },
+        {
+          "nm": "Drive: Grindavík → Seljalandsfoss",
+          "arrive": "16:33",
+          "duration": 145,
+          "kind": "drive",
+          "ll": [
+            63.74,
+            -21.2
+          ],
+          "note": "Route 43 → Route 41 → Route 1 / Ring Road east past Selfoss & Hvolsvöllur. ~165 km, ~2h25m. Good spot to top off fuel in Selfoss."
         },
         {
           "nm": "Seljalandsfoss",
-          "arrive": "18:05",
+          "arrive": "18:58",
           "duration": 80,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             63.6156232,
@@ -115,13 +158,24 @@
           ],
           "cost": "~$7/car parking",
           "book": "no",
-          "note": "The one you can walk BEHIND. You'll get soaked — full rain gear. Paid parking. Evening light is great and crowds thin out — no rush in the midnight sun."
+          "parking": "Paid lot right at the falls, ~800–1,000 ISK flat (pay by plate / Parka app); ~5–6 min flat paved walk to the falls. (Free lot off Rte 1 ~15 min walk away if you'd rather not pay.)",
+          "note": "The one you can walk BEHIND. You'll get soaked — full rain gear. Pop over to Gljúfrabúi (hidden falls, ~5 min walk) too. Evening light is great and crowds thin — no rush in the midnight sun."
+        },
+        {
+          "nm": "Drive: Seljalandsfoss → Skógafoss",
+          "arrive": "20:18",
+          "duration": 25,
+          "kind": "drive",
+          "ll": [
+            63.57,
+            -19.74
+          ],
+          "note": "Route 1 / Ring Road east. ~30 km, ~25 min."
         },
         {
           "nm": "Skógafoss",
-          "arrive": "20:15",
+          "arrive": "20:43",
           "duration": 100,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             63.5320523,
@@ -129,25 +183,46 @@
           ],
           "cost": "~$7/car parking",
           "book": "no",
-          "note": "Massive and thunderous, rainbows on sunny days. Climb the stairs to the top viewpoint — you've got light until ~midnight, so linger into the low evening light (~10 PM finish)."
+          "parking": "Lot at the base, ~1,000 ISK flat / 8 hrs (pay via Parka app); ~2 min walk to the foot of the falls, ~7 min up the staircase to the top viewpoint.",
+          "note": "Massive and thunderous, rainbows on sunny days. Climb the stairs to the top viewpoint — you've got light until ~midnight, so linger into the low evening light (~10:30 PM finish)."
+        },
+        {
+          "nm": "Drive: Skógafoss → Vík",
+          "arrive": "22:23",
+          "duration": 30,
+          "kind": "drive",
+          "ll": [
+            63.48,
+            -19.2
+          ],
+          "note": "Route 1 / Ring Road east. ~34 km, ~30 min."
         },
         {
           "nm": "Krónan Vík (grocery)",
-          "arrive": "22:25",
+          "arrive": "22:53",
           "duration": 35,
-          "driveToNext": null,
           "kind": "logistics",
           "ll": [
             63.4188,
             -18.7095
           ],
-          "note": "BIG SHOP for the whole east leg — you'll cook at the Vík and Svínafell campsite kitchens. Krónan is the supermarket in Vík (there's NO Bónus here), on the main road by the N1. Open ~10–20. Stock up before the east coast gets sparse. Top off fuel at the N1/Orkan next door too. 🍔 DINNER (the trip's tightest food moment): Smiðjan Brugghús (brewpub, burgers/ribs) or Suður-Vík (sit-down lamb/char) — BUT both kitchens close ~21:00 and you arrive Vík ~22:00. Either arrive by ~20:45 (trim a waterfall), call ahead, or just cook at the campsite tonight with what you grabbed here."
+          "note": "BIG SHOP for the whole east leg — cook at the Vík and Svínafell campsite kitchens. Krónan is the supermarket in Vík (NO Bónus here), on the main road by the N1. ⚠️ Krónan closes ~20:00 — if you're rolling in late tonight it'll be SHUT, so plan to shop EARLIER (it's also your Day-2 breakfast stop) or stock up before. Top off fuel at the N1/Orkan next door. 🍔 DINNER (the trip's tightest food moment): Smiðjan Brugghús or Suður-Vík — BUT both kitchens close ~21:00. Tonight, just cook at the campsite."
+        },
+        {
+          "nm": "Drive: Krónan → Vík Camping",
+          "arrive": "23:28",
+          "duration": 5,
+          "kind": "drive",
+          "ll": [
+            63.419288,
+            -18.995537
+          ],
+          "note": "Local roads through Vík village. ~3 km, ~5 min."
         },
         {
           "nm": "Vík Camping",
-          "arrive": "23:05",
+          "arrive": "23:33",
           "duration": 0,
-          "driveToNext": null,
           "kind": "sleep",
           "ll": [
             63.419288,
@@ -156,7 +231,7 @@
           "cost": "~$13 pp + $3 tax",
           "book": "no",
           "bookNote": "First-come, large site (250 capacity) — rarely fills, just arrive.",
-          "note": "Night 1 base. Large, clean, cozy common kitchen. Showers ~300kr (coins at reception). Crowded in summer. In ~23:05, wind down, bed ~23:30. Reynisfjara is 10 min away — hit it first thing tomorrow."
+          "note": "Night 1 base. Large, clean, cozy common kitchen. Showers ~300kr (coins at reception). Crowded in summer. Wind down, bed shortly after arrival. Reynisfjara is 10 min away — hit it first thing tomorrow."
         }
       ]
     },
@@ -164,7 +239,7 @@
       "n": 2,
       "title": "Black Sand, Canyons, Glaciers & Icebergs",
       "date": "WED 2 JUL",
-      "dayStart": "09:30",
+      "dayStart": "08:30",
       "daylight": {
         "sunrise": "03:08",
         "sunset": "23:53"
@@ -178,27 +253,74 @@
         "bedtime": "23:50",
         "wake": "08:50",
         "sleepHours": 9,
-        "note": "Night 2 base — overnight east at Svínafell to avoid backtracking. Adding Dyrhólaey (puffins) pushed Day 2 ~40 min later, so this is the latest night: in ~23:20, bed ~23:50 → wake 08:50 to keep the full 9h (Day 3 is a relaxed light-driving day, so a slightly later wake is fine — it just nudges the 10:30 first stop). If you'd rather not run this late, trim the puffin stop or shave time at Svartifoss/Diamond Beach."
+        "note": "Night 2 base — overnight east at Svínafell to avoid backtracking. Adding Dyrhólaey (puffins) makes this the latest night: bed ~23:50 → wake 08:50 to keep the full 9h (Day 3 is a relaxed light-driving day, so a slightly later wake is fine). If you'd rather not run this late, trim the puffin stop or shave time at Svartifoss/Diamond Beach."
       },
       "narr": "Start at the black beach right by Vík, then the most dramatic stretch of the trip: a slot canyon, the Skaftafell glacier area, and the famous iceberg lagoon + Diamond Beach. Overnight east at Svínafell to avoid backtracking — the move that makes this day work.",
       "stops": [
         {
-          "nm": "Reynisfjara Black Beach",
+          "nm": "Wake & morning routine (Vík Camping)",
+          "arrive": "08:30",
+          "duration": 30,
+          "kind": "logistics",
+          "ll": [
+            63.419288,
+            -18.995537
+          ],
+          "noRoute": true,
+          "note": "Wake ~08:30 (9h sleep from a ~23:30 bed). Coffee, shower, pack up the camper, breakfast prep. ~1 hr before rolling out to the first stop. Camped at Vík Camping."
+        },
+        {
+          "nm": "Breakfast — Lava Bakery (Vík)",
+          "arrive": "09:00",
+          "duration": 30,
+          "kind": "meal",
+          "ll": [
+            63.4203,
+            -19.0091
+          ],
+          "cost": "~$10 pp",
+          "note": "🥐 Lava Bakery at the Krónan complex in Vík opens 09:00 — fresh bread, pastries, coffee. Or cook at camp. Pop into Krónan next door for trail snacks/water — last big supermarket before the east."
+        },
+        {
+          "nm": "Drive: Vík → Reynisfjara",
           "arrive": "09:30",
+          "duration": 10,
+          "kind": "drive",
+          "ll": [
+            63.4142559,
+            -19.0104132
+          ],
+          "note": "Route 1 then Route 215. ~8 km, ~10 min."
+        },
+        {
+          "nm": "Reynisfjara Black Beach",
+          "arrive": "09:40",
           "duration": 60,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             63.4142559,
             -19.0104132
           ],
-          "note": "Moved here from Day 1 — it's 10 min from Vík where you slept, so it's the natural first stop. Basalt columns + sea stacks. DANGER: sneaker waves kill people here. Never turn your back on the ocean."
+          "cost": "~$7/car parking",
+          "book": "no",
+          "parking": "Paid lot at the beach — 1,000 ISK (~$7) for 3 hrs via Parka app (upper lot 750 ISK). ~2 min walk to the sand.",
+          "note": "Moved here from Day 1 — natural first stop from Vík. Basalt columns + sea stacks. DANGER: sneaker waves kill people here. Never turn your back on the ocean."
+        },
+        {
+          "nm": "Drive: Reynisfjara → Dyrhólaey",
+          "arrive": "10:40",
+          "duration": 15,
+          "kind": "drive",
+          "ll": [
+            63.4011,
+            -19.1283
+          ],
+          "note": "Back to Route 1, then Route 218. ~12 km, ~15 min."
         },
         {
           "nm": "Dyrhólaey (puffins)",
-          "arrive": "10:40",
+          "arrive": "10:55",
           "duration": 40,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             63.4011,
@@ -206,13 +328,24 @@
           ],
           "cost": "Free",
           "book": "no",
-          "note": "🐦 PUFFIN spot — peak nesting season is exactly now (June–early Aug). Dramatic promontory with a lighthouse + rock arch, ~10 min from Reynisfjara so basically no detour. Lower viewpoint always open + has puffins; the UPPER lighthouse area sometimes closes during nesting to protect the birds (and the access road can need higher clearance — check the gate). Bring a zoom lens. Free, ~30–40 min."
+          "parking": "Free. Lower lot always open; Upper lot (by lighthouse, ~200 m walk) reached via steep narrow gravel road — fine in dry summer, 4x4 safer. During nesting season the upper promontory is foot-access only 09:00–19:00, so a daytime visit is fine; check the gate.",
+          "note": "🐦 PUFFIN spot — peak nesting season is exactly now (June–early Aug). Dramatic promontory with a lighthouse + rock arch, basically no detour. Lower viewpoint has puffins; bring a zoom lens. Free, ~30–40 min."
+        },
+        {
+          "nm": "Drive: Dyrhólaey → Fjaðrárgljúfur",
+          "arrive": "11:35",
+          "duration": 55,
+          "kind": "drive",
+          "ll": [
+            63.771279,
+            -18.1718159
+          ],
+          "note": "Route 218 → Route 1 east past Vík, then Route 206. ~75 km, ~55 min."
         },
         {
           "nm": "Fjaðrárgljúfur Canyon",
-          "arrive": "12:00",
+          "arrive": "12:30",
           "duration": 75,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             63.771279,
@@ -220,25 +353,58 @@
           ],
           "cost": "~$7/car parking",
           "book": "no",
-          "note": "Serpentine slot canyon (the 'Justin Bieber canyon'). ~1 hr+ round trip on the rim trail. Pay parking or you'll be fined."
+          "parking": "Lower lot 1,000 ISK (~$7) via Parka app — license-plate cameras, fines if unpaid. Upper lot on F206 near the main viewpoint is free. ~5 min walk to the rim trailhead.",
+          "note": "Serpentine slot canyon (the 'Justin Bieber canyon'). ~1 hr+ round trip on the rim trail."
+        },
+        {
+          "nm": "Drive: Fjaðrárgljúfur → N1 Klaustur",
+          "arrive": "13:45",
+          "duration": 10,
+          "kind": "drive",
+          "ll": [
+            63.7938,
+            -18.0397
+          ],
+          "note": "Route 206 → Route 1 east into Kirkjubæjarklaustur. ~12 km, ~10 min."
         },
         {
           "nm": "N1 Kirkjubæjarklaustur (fuel)",
-          "arrive": "13:20",
+          "arrive": "13:55",
           "duration": 15,
-          "driveToNext": null,
           "kind": "logistics",
           "ll": [
             63.7938,
             -18.0397
           ],
-          "note": "⛽ THE most important fill of the trip. This is the LAST reliable fuel before the long empty stretch past Skaftafell to Jökulsárlón and back — there's nothing until Höfn, well east of the lagoon. Top up even if you're half-full. 2 min off the route, right by the canyon. 🍽️ LUNCH right here: Systrakaffi (Klausturvegur 13, open daily 12:00–21:00, Arctic char/pizza/cakes, no reservations) — ideal ~1pm drop-in. Or hold out for the Glacier Goodies food truck at Skaftafell (langoustine soup / fish & chips, ~11:30–20:00)."
+          "note": "⛽ THE most important fill of the trip. LAST reliable fuel before the long empty stretch past Skaftafell to Jökulsárlón — nothing until Höfn, well east of the lagoon. Top up even if half-full."
+        },
+        {
+          "nm": "Lunch — Systrakaffi (Klaustur)",
+          "arrive": "14:10",
+          "duration": 45,
+          "kind": "meal",
+          "ll": [
+            63.7906,
+            -18.0606
+          ],
+          "cost": "~$20 pp",
+          "note": "🍽️ Systrakaffi, Klausturvegur 13, open daily 12:00–21:00 — Arctic char/pizza/cakes, no reservations, ideal drop-in. Or skip and hold out for the Glacier Goodies food truck at Skaftafell (langoustine soup / fish & chips, ~11:30–20:00)."
+        },
+        {
+          "nm": "Drive: Klaustur → Skaftafell",
+          "arrive": "14:55",
+          "duration": 45,
+          "kind": "drive",
+          "ll": [
+            64.0268002,
+            -16.9171872
+          ],
+          "note": "Route 1 east across the Skeiðarársandur outwash plain. ~70 km, ~45 min."
         },
         {
           "nm": "Skaftafell Glacier",
-          "arrive": "14:45",
+          "arrive": "15:40",
           "duration": 45,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             64.0268002,
@@ -246,25 +412,48 @@
           ],
           "cost": "~$7/car parking",
           "book": "no",
+          "parking": "Skaftafell Visitor Centre lot — 1,040 ISK (~$8) via Parka, valid till midnight (in/out OK). Gives a 50% reciprocal discount on Jökulsárlón parking the same day, so pay here. Glacier-view path + Svartifoss trailhead start at this lot.",
           "note": "Part of Vatnajökull National Park. Quick glacier-view stop + trailhead for Svartifoss. (Do NOT book a guided glacier walk today — that's 6–8 hrs and would kill the lagoon.)"
         },
         {
           "nm": "Svartifoss",
-          "arrive": "15:35",
-          "duration": 150,
-          "driveToNext": null,
+          "arrive": "16:25",
+          "duration": 120,
           "kind": "activity",
           "ll": [
             64.0275282,
             -16.9753082
           ],
-          "note": "The 'black waterfall' over hexagonal basalt columns — same Skaftafell trailhead. ~2 hrs round trip at an easy pace. Pair with the glacier viewpoint."
+          "parking": "Same Skaftafell Visitor Centre lot (already paid) — no separate fee. Trail starts here: ~1.5 km each way, steady uphill, ~45 min up / ~35 min down on foot.",
+          "note": "The 'black waterfall' over hexagonal basalt columns. ~2 hrs round trip incl. time at the falls. Pair with the glacier viewpoint."
+        },
+        {
+          "nm": "Drive: Skaftafell → Jökulsárlón",
+          "arrive": "18:25",
+          "duration": 45,
+          "kind": "drive",
+          "ll": [
+            64.0784458,
+            -16.2305536
+          ],
+          "note": "Route 1 east. ~57 km, ~45 min."
+        },
+        {
+          "nm": "Dinner — Heimahumar langoustine truck (Jökulsárlón)",
+          "arrive": "19:10",
+          "duration": 40,
+          "kind": "meal",
+          "ll": [
+            64.0784458,
+            -16.2305536
+          ],
+          "cost": "~$25 pp",
+          "note": "🦞 NOTE TIMING: the Heimahumar 'Local Langoustine' truck right at the lagoon (langoustine roll + acclaimed soup, genuinely local) closes before 7pm — if you arrive after, it's likely shut. Plan B: Frost @ Fjallsárlón (~15 min west, sit-down) or cook at Svínafell tonight. Skip the 1h40m detour to Höfn for langoustine (mostly imported now). If you can shave time earlier, push to reach the truck by ~18:30."
         },
         {
           "nm": "Jökulsárlón Glacier Lagoon",
-          "arrive": "18:55",
-          "duration": 120,
-          "driveToNext": null,
+          "arrive": "19:50",
+          "duration": 90,
           "kind": "activity",
           "ll": [
             64.0784458,
@@ -272,26 +461,48 @@
           ],
           "cost": "Free to view · $7/car · boat ~$51 pp",
           "book": "rec",
-          "bookNote": "Lagoon viewing + parking is cheap. OPTIONAL amphibian boat tour ~7,100 ISK/$51 pp (every ~30 min, popular slots fill — book a few days ahead); Zodiac ~$120 pp books out fast. Boat not required to enjoy it.",
-          "note": "Icebergs calving off the glacier drift across the lagoon. Watch for seals. Boat tours available. A trip highlight — give it real time in the long evening light. 🦞 DINNER call: skip the 1h40m round-trip detour east to Höfn for langoustine (it's mostly imported now anyway). Instead eat at the Heimahumar 'Local Langoustine' food truck RIGHT HERE at the lagoon (langoustine roll + acclaimed soup, genuinely local) — but it closes before 7pm, so make it an early ~5:30–6pm dinner before Diamond Beach. Sit-down backup nearby: Frost @ Fjallsárlón (~15 min west) or cook at Svínafell tonight."
+          "bookNote": "Lagoon viewing is free; parking is the only fixed cost. OPTIONAL amphibian boat tour ~7,100 ISK/$51 pp (every ~30 min, popular slots fill — book a few days ahead); Zodiac ~$120 pp books out fast. Boat not required.",
+          "parking": "Main lagoon lot — 1,040 ISK (~$8) via Parka, BUT half-price if you paid at Skaftafell today (reciprocal). One payment also covers both Diamond Beach lots until midnight. Free overflow lot ~2.3 km away if main is full.",
+          "note": "Icebergs calving off the glacier drift across the lagoon. Watch for seals. A trip highlight — give it real time in the long evening light."
+        },
+        {
+          "nm": "Drive: Jökulsárlón → Diamond Beach",
+          "arrive": "21:20",
+          "duration": 5,
+          "kind": "drive",
+          "ll": [
+            64.044334,
+            -16.1776622
+          ],
+          "note": "Route 1 just across the bridge/road from the lagoon. ~1.5 km, ~3–5 min. Parking already covered by lagoon payment."
         },
         {
           "nm": "Diamond Beach",
-          "arrive": "21:00",
+          "arrive": "21:25",
           "duration": 90,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             64.044334,
             -16.1776622
           ],
-          "note": "Ice chunks wash up like diamonds on black sand. Go at LOW TIDE for the classic look. Across the road from the lagoon. Evening light is gorgeous here — finishes ~22:30 in the golden low-sun glow."
+          "parking": "Both Diamond Beach lots (east + west of the river) are covered by your Jökulsárlón payment — no separate fee. ~2–3 min walk to the ice on black sand.",
+          "note": "Ice chunks wash up like diamonds on black sand. Go at LOW TIDE for the classic look. Across the road from the lagoon. Evening light is gorgeous here — finishes in the golden low-sun glow."
+        },
+        {
+          "nm": "Drive: Diamond Beach → Svínafell",
+          "arrive": "22:55",
+          "duration": 50,
+          "kind": "drive",
+          "ll": [
+            63.9790093,
+            -16.8536533
+          ],
+          "note": "Route 1 west back past Skaftafell. ~60 km, ~50 min."
         },
         {
           "nm": "Svínafell Campground",
-          "arrive": "23:20",
+          "arrive": "23:45",
           "duration": 0,
-          "driveToNext": null,
           "kind": "sleep",
           "ll": [
             63.9790093,
@@ -299,7 +510,7 @@
           ],
           "cost": "~$12 pp + $3 tax",
           "book": "no",
-          "note": "Night 2 base — repeatedly called the best site on the South Coast. ~$12pp. Great kitchen, clean showers. ~50 min back west of the lagoon; in ~23:20, bed shortly after."
+          "note": "Night 2 base — repeatedly called the best site on the South Coast. ~$12pp. Great kitchen, clean showers. Bed shortly after arrival; the long evening at Diamond Beach is worth the late arrival."
         }
       ]
     },
@@ -307,7 +518,7 @@
       "n": 3,
       "title": "Transit West + Hot Spring",
       "date": "THU 3 JUL",
-      "dayStart": "10:30",
+      "dayStart": "08:50",
       "daylight": {
         "sunrise": "03:10",
         "sunset": "23:51"
@@ -321,15 +532,59 @@
         "bedtime": "22:30",
         "wake": "07:30",
         "sleepHours": 9,
-        "note": "Night 3 base — camp in Flúðir right at the Secret Lagoon. This night PRECEDES the early Day 4, so it stays earlier: a long evening soak ends ~21:35, bed 22:30 → wake 07:30 (9h); Brúarfoss is ~1h away for a 09:00 Day-4 start."
+        "note": "Night 3 base — camp in Flúðir right at the Secret Lagoon. This night PRECEDES the early Day 4, so it stays earlier: a long evening soak ends ~21:15, bed 22:30 → wake 07:30 (9h); Brúarfoss is ~25 min away for an early Day-4 start."
       },
-      "narr": "Your longest drive, heading back west to set up the Golden Circle. Light on stops by design, so sleep in — you've earned it. Fuel up; long gaps between stations. A wild-pool soak at Seljavallalaug on the way, then a long, unhurried evening soak at the Secret Lagoon.",
+      "narr": "Your longest drive, heading back west to set up the Golden Circle. Light on stops by design. Cook breakfast at camp, then a big westward transit — fuel up in Vík, long gaps between stations. A wild-pool soak at Seljavallalaug on the way, resupply + lunch in Selfoss, Kerið Crater, then a long, unhurried evening soak at the Secret Lagoon.",
       "stops": [
         {
+          "nm": "Wake & morning routine (Svínafell Campground)",
+          "arrive": "08:50",
+          "duration": 45,
+          "kind": "logistics",
+          "ll": [
+            63.9790093,
+            -16.8536533
+          ],
+          "noRoute": true,
+          "note": "Wake ~08:50 (9h sleep from a ~23:50 bed). Coffee, shower, pack up the camper, breakfast prep. ~1 hr before rolling out to the first stop. Camped at Svínafell Campground (near Hof)."
+        },
+        {
+          "nm": "Breakfast at Svínafell camp",
+          "arrive": "09:35",
+          "duration": 45,
+          "kind": "meal",
+          "ll": [
+            63.9854,
+            -16.8783
+          ],
+          "note": "BREAKFAST: cook at camp before the long haul west — thin food options out here. Skaftafell Bistro (at the visitor centre, ~2 min away) is the only nearby café if you'd rather grab a coffee/pastry to go. Pack up; today is mostly driving."
+        },
+        {
+          "nm": "Drive: Svínafell → Vík (fuel)",
+          "arrive": "10:20",
+          "duration": 105,
+          "kind": "drive",
+          "ll": [
+            63.4187,
+            -19.006
+          ],
+          "note": "Route 1 west ~135 km, ~1h45. ⛽ FUEL STOP in Vík — top off at the Orkan (cheaper, 24/7) or N1; it's a long stretch west with thin stations. Quick break only."
+        },
+        {
+          "nm": "Drive: Vík → Seljavallalaug",
+          "arrive": "12:05",
+          "duration": 35,
+          "kind": "drive",
+          "ll": [
+            63.5659791,
+            -19.6091423
+          ],
+          "note": "Route 1 west then Route 242 (Raufarfell turnoff) ~42 km, ~35 min. Road ends at a small free gravel parking lot."
+        },
+        {
           "nm": "Seljavallalaug Pool",
-          "arrive": "10:30",
-          "duration": 150,
-          "driveToNext": null,
+          "arrive": "12:40",
+          "duration": 120,
           "kind": "soak",
           "ll": [
             63.5659791,
@@ -337,39 +592,82 @@
           ],
           "cost": "Free",
           "book": "no",
-          "note": "Historic pool hidden in a valley, 20-min walk in. Lukewarm, not hot, rough changing rooms. A quiet, unhurried wild soak to start a light driving day. ⛽ Fuel before this leg — top off at the N1 or Orkan in Vík when you leave (Orkan is cheaper + 24/7); it's a long drive west with thin stations."
+          "parking": "Free gravel lot at the end of Route 242. ~15–20 min walk in each way along a rocky riverbed/stream-crossing trail — wear good shoes. No facilities at the lot.",
+          "note": "Historic pool hidden in a valley. Lukewarm (not hot), rough/basic changing rooms. A quiet, unhurried wild soak — budget the 20-min walk each way on top of pool time."
+        },
+        {
+          "nm": "Drive: Seljavallalaug → Selfoss",
+          "arrive": "14:40",
+          "duration": 75,
+          "kind": "drive",
+          "ll": [
+            63.9355,
+            -21.008
+          ],
+          "note": "Back out Route 242 to Route 1 west ~95 km, ~1h15. Selfoss is the big services hub (N1) — refuel here too if needed."
+        },
+        {
+          "nm": "Lunch in Selfoss",
+          "arrive": "15:55",
+          "duration": 60,
+          "kind": "meal",
+          "ll": [
+            63.9355,
+            -21.008
+          ],
+          "note": "LUNCH: Kaffi Krús (burgers/pizza/cakes, good value, ~11–22) or Tryggvaskáli (Iceland's oldest restaurant building, more refined, from 11:30). Grab-and-go: GK Bakarí."
         },
         {
           "nm": "Bónus Selfoss (resupply)",
-          "arrive": "14:10",
+          "arrive": "16:55",
           "duration": 25,
-          "driveToNext": null,
           "kind": "logistics",
           "ll": [
             63.9355,
             -21.008
           ],
-          "note": "Resupply for the Golden Circle back half — Bónus is Iceland's cheapest chain (open 10–20). Cook at the Flúðir/Reykjavík-area campsites. Selfoss is also the big fuel + services hub (N1 Selfoss) on the way west, so refuel here too if you didn't in Vík. 🍽️ LUNCH in Selfoss: Kaffi Krús (burgers/pizza/cakes, good value, ~11–22) or Tryggvaskáli (Iceland's oldest restaurant building, more refined; from 11:30). Grab-and-go: GK Bakarí."
+          "note": "Resupply for the Golden Circle back half — Bónus is Iceland's cheapest chain (open 10–20). Stock up to cook at the Flúðir campsite. Parking: free lot at the store."
+        },
+        {
+          "nm": "Drive: Selfoss → Kerið Crater",
+          "arrive": "17:20",
+          "duration": 15,
+          "kind": "drive",
+          "ll": [
+            64.0412785,
+            -20.8851466
+          ],
+          "note": "North on Route 35 ~13 km, ~15 min."
         },
         {
           "nm": "Kerið Crater",
-          "arrive": "15:25",
+          "arrive": "17:35",
           "duration": 60,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             64.0412785,
             -20.8851466
           ],
-          "cost": "~$4.35 pp",
+          "cost": "~$5 pp (600 ISK)",
           "book": "no",
-          "note": "Volcanic crater lake with a red rim — small entry fee. Walk the rim + down to the water at an easy pace. Toilets close 9pm."
+          "parking": "Free gravel lot right at the crater, beside the entrance — no walk-in. Toilets on site (close 9pm).",
+          "note": "Volcanic crater lake with a red rim — small entry fee paid at the lot. Walk the rim + down to the water at an easy pace."
+        },
+        {
+          "nm": "Drive: Kerið → Secret Lagoon (Flúðir)",
+          "arrive": "18:35",
+          "duration": 30,
+          "kind": "drive",
+          "ll": [
+            64.1373976,
+            -20.3096984
+          ],
+          "note": "Route 35 north then east toward Flúðir ~39 km, ~30 min."
         },
         {
           "nm": "Secret Lagoon (Flúðir)",
-          "arrive": "17:15",
-          "duration": 240,
-          "driveToNext": null,
+          "arrive": "19:05",
+          "duration": 195,
           "kind": "soak",
           "ll": [
             64.1373976,
@@ -378,7 +676,32 @@
           "cost": "~$33 pp · camp ~$16 pp",
           "book": "rec",
           "bookNote": "Lagoon: 4,500 ISK/$33 pp, book a day or two ahead in summer (towel/suit rental ~$8). Flúðir campsite right here ~$16 pp + tax, no booking needed.",
-          "note": "Iceland's oldest pool — less touristy than Blue/Sky, ~$35pp. Reservation recommended. With the short driving day, settle in for a long ~4 hr evening soak in the midnight-sun light, ending ~21:15. Camp right here in Flúðir for Night 3 — bed ~22:30 (earlier, because Day 4 starts early). EAT-OUT option: Minilik, an affordable Ethiopian spot right here in Flúðir (big portions, great for veg; Tue–Sun 18:00–21:00) — perfect since you're parked here."
+          "parking": "Free lagoon parking lot right at the entrance; the Flúðir campsite shares the same site, so you park once and stay. No walk-in.",
+          "note": "Iceland's oldest pool — less touristy than Blue/Sky. Reservation recommended. With the short driving day, settle in for a long ~3+ hr evening soak in the midnight-sun light, ending ~21:15."
+        },
+        {
+          "nm": "Dinner in Flúðir",
+          "arrive": "22:20",
+          "duration": 60,
+          "kind": "meal",
+          "ll": [
+            64.1373976,
+            -20.3096984
+          ],
+          "note": "DINNER: Minilik, an affordable Ethiopian spot right here in Flúðir (big portions, great for veg; Tue–Sun 18:00–21:00) — note it closes 21:00, so eat BEFORE the soak if you arrive past close, or cook at the Flúðir campsite tonight with the Bónus haul. You're parked here either way."
+        },
+        {
+          "nm": "Camp at Flúðir (Secret Lagoon)",
+          "arrive": "23:20",
+          "duration": 0,
+          "kind": "sleep",
+          "ll": [
+            64.1373976,
+            -20.3096984
+          ],
+          "cost": "~$16 pp + tax",
+          "book": "no",
+          "note": "Night 3 — camp right at the Secret Lagoon. Bed ~22:30 (earlier, because Day 4 starts early) → wake 07:30."
         }
       ]
     },
@@ -386,7 +709,7 @@
       "n": 4,
       "title": "The Golden Circle",
       "date": "FRI 4 JUL",
-      "dayStart": "09:00",
+      "dayStart": "07:30",
       "daylight": {
         "sunrise": "03:12",
         "sunset": "23:49"
@@ -400,29 +723,75 @@
         "bedtime": "21:00",
         "wake": "06:00",
         "sleepHours": 9,
-        "note": "Night 4 base — Happy Campers Keflavík campsite (~$14 pp), closest to the depot for the morning drop. TIGHT NIGHT: the 07:30 depot drop means wake ~06:00 (pack up + ~10 min drive to Fitjabraut by 07:30), so bed by 21:00 for 9h. That's why Day 4 winds down earlier (be at this base by ~20:30)."
+        "note": "Night 4 base — Happy Campers Keflavík campsite (~$14 pp), closest to the depot for the morning drop. TIGHT NIGHT: the 07:30 depot drop means wake ~06:00 (pack up + ~10 min drive to Fitjabraut by 07:30), so bed by 21:00 for 9h. Be at this base by ~20:30 — Day 4 winds down earlier than Days 1–3."
       },
-      "narr": "The classic trio plus a blue-water bonus. Þingvellir and Geysir are the heart of the Golden Circle. With the long evening you can do the full Reykjadalur hot-river hike and still finish in daylight, then drive toward Keflavík so the morning camper drop is painless.",
+      "narr": "The classic trio plus a blue-water bonus, rebuilt as an explicit chain. Brúarfoss turquoise warm-up, then the Gullfoss–Strokkur core, a greenhouse lunch, Þingvellir's rift valley, and a Reykjadalur hot-river soak with pizza in Hveragerði before the push west. Everything front-loaded so you reach the Keflavík base by ~20:30 for the tight pre-drop night.",
       "stops": [
         {
+          "nm": "Wake & morning routine (Flúðir)",
+          "arrive": "07:30",
+          "duration": 60,
+          "kind": "logistics",
+          "ll": [
+            64.1373976,
+            -20.3096984
+          ],
+          "noRoute": true,
+          "note": "Wake ~07:30 (9h sleep from a ~22:30 bed). Coffee, shower, pack up the camper, breakfast prep. ~1 hr before rolling out to the first stop. Camped at Flúðir (near Secret Lagoon)."
+        },
+        {
+          "nm": "Breakfast — Efstidalur II (or cook at camp)",
+          "arrive": "08:30",
+          "duration": 45,
+          "kind": "meal",
+          "ll": [
+            64.2287,
+            -20.4017
+          ],
+          "cost": "~$15–25 pp (or free if cooking)",
+          "book": "no",
+          "note": "Flúðir/Reykholt has thin early options. Efstidalur II farm café is en route on Rte 37 but opens ~10:00 — too late for a 08:30 start. Best move: cook breakfast at camp before leaving, or grab a quick bite at the Flúðir N1/Samkaup. Treat this as a real fuel-up step before the drive cluster."
+        },
+        {
+          "nm": "Drive: Flúðir → Brúarfoss",
+          "arrive": "09:15",
+          "duration": 25,
+          "kind": "drive",
+          "ll": [
+            64.2643026,
+            -20.5157467
+          ],
+          "note": "~25 min, ~20 km via Rte 30/35 then local road to the parking area."
+        },
+        {
           "nm": "Brúarfoss",
-          "arrive": "09:00",
-          "duration": 50,
-          "driveToNext": null,
+          "arrive": "09:40",
+          "duration": 45,
           "kind": "activity",
           "ll": [
             64.2643026,
             -20.5157467
           ],
-          "cost": "~$5.40/car parking",
+          "cost": "~$5 (750 ISK) parking",
           "book": "no",
-          "note": "Unreal turquoise-blue water. Use the closer parking lot for a 30–45 min round trip (the old trailhead is ~1 hr each way — skip that long version)."
+          "parking": "Use the NEW official parking lot (built 2023), not the old far trailhead. The new lot is only ~500 m / 5-min walk from the falls — 30–45 min round trip total. The old trailhead is a ~7 km / 1-hr-each-way hike; skip it entirely.",
+          "note": "Unreal turquoise-blue water. Pay ~750 ISK at the new lot, short walk in, soak it in, back out."
+        },
+        {
+          "nm": "Drive: Brúarfoss → Gullfoss",
+          "arrive": "10:25",
+          "duration": 25,
+          "kind": "drive",
+          "ll": [
+            64.3270716,
+            -20.1199478
+          ],
+          "note": "~25 min, ~25 km via local road to Rte 37 then Rte 35 north."
         },
         {
           "nm": "Gullfoss Falls",
-          "arrive": "10:15",
+          "arrive": "10:50",
           "duration": 55,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             64.3270716,
@@ -430,50 +799,159 @@
           ],
           "cost": "Free parking",
           "book": "no",
-          "note": "The 'Golden Falls' — a thundering two-tier monster. Upper + lower platforms. Café on site for lunch."
+          "parking": "Large free paved lot right at the visitor centre / café. Upper viewing platform is a flat 2-min walk; lower platform is a short stair/path descent (~5 min down). No fee.",
+          "note": "The 'Golden Falls' — a thundering two-tier monster. Do both upper and lower platforms. Café on site if you want a coffee (lunch is booked at Friðheimar later)."
         },
         {
-          "nm": "Strokkur Geyser",
-          "arrive": "11:25",
+          "nm": "Drive: Gullfoss → Strokkur/Geysir",
+          "arrive": "11:45",
+          "duration": 12,
+          "kind": "drive",
+          "ll": [
+            64.3127094,
+            -20.300721
+          ],
+          "note": "~12 min, ~10 km via Rte 35 south."
+        },
+        {
+          "nm": "Strokkur Geyser & Geysir Field",
+          "arrive": "11:57",
           "duration": 50,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
             64.3127094,
             -20.300721
           ],
-          "cost": "~$7/car parking",
+          "cost": "~$7 (1000 ISK) parking",
           "book": "no",
-          "note": "Erupts every 5–10 min, up to 30m. Free (pay parking). Wait for a couple of eruptions; walk uphill for the geothermal field view. 🍅 LUNCH — Friðheimar tomato-greenhouse restaurant (Reykholt, ~10 min away): eat among the vines, unlimited tomato-soup-+-bread buffet ~3,740 ISK ($27), kitchen 11:30–16:00. BOOKING REQUIRED — sells out weeks ahead in July, reserve NOW. No-booking fallback: their on-site Winebar/Bistro, or Gullfoss Kaffi (refillable lamb soup) / Efstidalur II farm (burgers + cowshed-view ice cream, best value)."
+          "parking": "Pay-parking lot across Rte 35 from the geothermal field, beside the Geysir Center/shop. Flat ~2-min walk to Strokkur. Pay via plate-recognition app or kiosk.",
+          "note": "Strokkur erupts every 5–10 min, up to 30 m — wait for 2–3 blasts. Optional uphill path for the wider geothermal-field + valley view. Then drive to your booked lunch."
+        },
+        {
+          "nm": "Drive: Geysir → Friðheimar",
+          "arrive": "12:47",
+          "duration": 15,
+          "kind": "drive",
+          "ll": [
+            64.2475,
+            -20.4214
+          ],
+          "note": "~15 min, ~14 km south on Rte 35 toward Reykholt."
+        },
+        {
+          "nm": "Lunch — Friðheimar Tomato Greenhouse",
+          "arrive": "13:02",
+          "duration": 75,
+          "kind": "meal",
+          "ll": [
+            64.2475,
+            -20.4214
+          ],
+          "cost": "~$27 (3,740 ISK) tomato-soup buffet",
+          "book": "must",
+          "bookNote": "BOOKING REQUIRED — reserve weeks ahead; sells out in July. Fallbacks if unbooked: Friðheimar's own Winebar/Bistro, Gullfoss Kaffi (refillable lamb soup), or Efstidalur II (burgers + cowshed ice cream).",
+          "parking": "Free gravel lot at the farm entrance, steps from the greenhouse door.",
+          "note": "Eat among the tomato vines; refillable soup-and-bread buffet, kitchen ~11:30–16:00. The one meal worth engineering the day around."
+        },
+        {
+          "nm": "Drive: Friðheimar → Þingvellir",
+          "arrive": "14:17",
+          "duration": 40,
+          "kind": "drive",
+          "ll": [
+            64.2554,
+            -21.1295
+          ],
+          "note": "~40 min, ~45 km via Rte 35 → 37 → 365 → 36 to the Hakið (P1) area."
         },
         {
           "nm": "Þingvellir National Park",
-          "arrive": "13:15",
+          "arrive": "14:57",
           "duration": 120,
-          "driveToNext": null,
           "kind": "activity",
           "ll": [
-            64.2821725,
-            -21.0764491
+            64.2554,
+            -21.1295
           ],
-          "cost": "~$7/car parking",
+          "cost": "~$7 (1000 ISK) parking (covers all lots all day)",
           "book": "no",
-          "note": "Walk between the North American & Eurasian tectonic plates; site of the original Icelandic parliament + Öxarárfoss. The biggest Golden Circle time block (~2 hrs). Pay parking ~1000kr."
+          "parking": "Park at P1 Hakið (visitor centre / Almannagjá viewpoint) — best single base: direct access down the Almannagjá rift gorge, the boardwalk, Law Rock, and the church. Walk the gorge ~15 min north to Öxarárfoss, OR move the car to P2 Öxarárfoss (closest lot to the falls) since the same daypass covers all lots. P5 (Valhöll) is for Silfra — skip unless diving.",
+          "note": "Walk between the North American & Eurasian plates; original parliament site + Öxarárfoss waterfall. Biggest time block (~2 hrs). Do Almannagjá from P1, then Öxarárfoss via the gorge path or a quick car-hop to P2."
+        },
+        {
+          "nm": "Drive: Þingvellir → Reykjadalur trailhead (Hveragerði)",
+          "arrive": "16:57",
+          "duration": 50,
+          "kind": "drive",
+          "ll": [
+            64.0218948,
+            -21.2111691
+          ],
+          "note": "~50 min, ~55 km via Rte 36 → 35 → Rte 1 south to the Hveragerði trailhead."
         },
         {
           "nm": "Reykjadalur Hot River",
-          "arrive": "16:15",
-          "duration": 180,
-          "driveToNext": null,
+          "arrive": "17:47",
+          "duration": 75,
           "kind": "soak",
           "ll": [
             64.0218948,
             -21.2111691
           ],
-          "cost": "Free · ~$5 parking · camp ~$14 pp",
+          "cost": "Free river · ~$5 (700 ISK) parking",
           "book": "no",
-          "bookNote": "River is free; pay ~700 ISK parking via the Parka app. Night-4 base: Happy Campers Keflavík ~$14 pp + tax, no booking — closest convenient site for the early airport drop.",
-          "note": "A naturally hot river up a ~3km uphill hike each way. Trimmed to ~3 hrs (vs the full 3.5–5) so you finish ~19:00. 🍕 DINNER right here in Hveragerði before the push west: Ölverk Pizza & Brewery (wood-fired pizza + geothermal in-house brews; kitchen closes ~21:00 so don't arrive after 8:45). Then drive ~50 min to the Keflavík base — bed ~21:00 for the early 06:00 wake before the 07:30 camper drop. If you'd rather linger in the river, you'll cut into sleep. Closer-to-KEF dinner alt: Kaffi Duus in Keflavík (harbourside seafood, kitchen to 22:00). Trailhead at Hveragerði, on the way west toward Keflavík."
+          "parking": "Pay-parking at the Hveragerði trailhead lot (north edge of town, end of the road past the campsite). Pay ~700 ISK via the Parka app or kiosk. From the lot it's a ~3 km / ~45-min uphill hike each way to the soakable stretch of river — wear proper shoes, bring a towel; boardwalk + changing screens at the river.",
+          "note": "Naturally hot river up a ~3 km uphill hike. ⚠️ TRIMMED TO ~75 min for the tight pre-flight night — that's only a QUICK taste (the full hike is ~45 min uphill EACH WAY). Realistic options in 75 min: hike partway up the geothermal valley and turn back, OR do a fast up-soak-down if you're quick hikers and skip lingering. If you want the full hot-river experience, you'd need ~2.5–3 hrs — but that blows the 21:00 bed before the 06:00 wake. Given you've already soaked at Blue Lagoon, Secret Lagoon & Seljavallalaug, a quick look here is a fair trade. Pay ~700 ISK parking via Parka."
+        },
+        {
+          "nm": "Drive: Reykjadalur trailhead → Ölverk Pizza",
+          "arrive": "19:02",
+          "duration": 6,
+          "kind": "drive",
+          "ll": [
+            64.0008,
+            -21.1872
+          ],
+          "note": "~6 min, ~3 km back down into Hveragerði town centre."
+        },
+        {
+          "nm": "Dinner — Ölverk Pizza & Brewery",
+          "arrive": "19:08",
+          "duration": 60,
+          "kind": "meal",
+          "ll": [
+            64.0008,
+            -21.1872
+          ],
+          "cost": "~$20–30 pp",
+          "book": "rec",
+          "parking": "Street / small lot in Hveragerði centre, right by the restaurant.",
+          "note": "Wood-fired pizza + geothermal in-house brews; kitchen closes ~21:00 so don't arrive after ~20:30. Eat here BEFORE the push west — no good late dinner options en route. Alt closer to base: Kaffi Duus in Keflavík (harbourside seafood, kitchen to ~22:00) if you'd rather eat after the drive."
+        },
+        {
+          "nm": "Drive: Hveragerði → Happy Campers Keflavík",
+          "arrive": "20:08",
+          "duration": 65,
+          "kind": "drive",
+          "ll": [
+            63.9814869,
+            -22.6281862
+          ],
+          "note": "~1 h 5 min, ~85 km via Rte 1 west past Reykjavík onto Rte 41 (Reykjanesbraut) to Keflavík."
+        },
+        {
+          "nm": "Happy Campers Keflavík — Night 4 base",
+          "arrive": "21:13",
+          "duration": 0,
+          "kind": "sleep",
+          "ll": [
+            63.9814869,
+            -22.6281862
+          ],
+          "cost": "~$14 pp + tax",
+          "book": "no",
+          "parking": "Campsite parking on arrival; ~10 min from the Fitjabraut depot for the 07:30 drop.",
+          "note": "Aim to arrive ~20:30–21:00. Bed ~21:00, wake 06:00 — pack up + ~10-min drive to the camper depot for the 07:30 drop before the 11:25 flight. Tightest night of the trip; that's why Day 4 wound down early."
         }
       ]
     },
@@ -481,38 +959,94 @@
       "n": 5,
       "title": "Departure",
       "date": "SAT 5 JUL",
-      "dayStart": "07:30",
+      "dayStart": "06:00",
       "daylight": {
         "sunrise": "03:14",
         "sunset": "23:47"
       },
       "overnight": null,
-      "narr": "Clean exit. No activities. Wake ~6:00, pack up, fill the tank at the N1 by the depot, drop the camper at the 7:30 AM slot (Fitjabraut depot, ~5 min from KEF), get to the terminal by ~8:35 — ~2h50m before the 11:25 flight. Breakfast: Hotel Keflavík's KEF Café opens 5:00 AM (the only real hot food that early); otherwise eat at the airport after security.",
+      "narr": "Clean exit, no slack. Wake ~06:00 at Happy Campers Keflavík and pack up while it's quiet. Fill the tank at the N1 self-service pumps next to the depot (Fitjabraut 2) BEFORE drop-off — the refuel surcharge is punishing. Either grab early breakfast at Hotel Keflavík's KEF Café (opens 05:00, hot food from 06:00) or skip it and eat airside after security. Drop the camper at the 07:30 slot (Fitjabraut 3 — NOT the terminal, ~3 km away), allow 30–45 min for inspection, then shuttle/taxi 5 min to KEF for ~08:35 — about 2h50m before the 11:25 Delta flight (DL247). ⚠️ Before today: confirm the drop-off DATE is Jul 5 (booking form showed Jul 6) and that the depot opens by 07:30.",
       "stops": [
         {
-          "nm": "Camper Drop-off (Reykjavik Depot, Fitjabraut 3)",
-          "arrive": "07:30",
+          "nm": "Wake & Pack Up (Happy Campers Keflavík)",
+          "arrive": "06:00",
+          "duration": 60,
+          "kind": "logistics",
+          "ll": [
+            63.9889,
+            -22.5586
+          ],
+          "noRoute": true,
+          "note": "Up ~06:00. Strip bedding, repack, empty the fridge/bins, and do a final sweep of the van (overhead, door pockets, under seats) — anything left behind is gone. Settle campsite check-out and dump grey water/toilet if the camper has them. Roll out by ~06:45."
+        },
+        {
+          "nm": "Drive: Campsite → N1 Fitjabraut",
+          "arrive": "07:00",
+          "duration": 8,
+          "kind": "drive",
+          "ll": [
+            63.98,
+            -22.566
+          ],
+          "note": "~3–4 km, ~6–8 min from the campsite to the N1 self-service station at Fitjabraut 2, right beside the rental depot."
+        },
+        {
+          "nm": "Fuel Up — N1 Fitjabraut 2 (fill BEFORE drop-off)",
+          "arrive": "07:08",
+          "duration": 15,
+          "kind": "logistics",
+          "ll": [
+            63.98,
+            -22.566
+          ],
+          "noRoute": true,
+          "note": "⛽ FILL THE TANK TO FULL here — the rental's refuel surcharge is brutal vs. pump price. N1 automated self-service (sjálfsafgreiðslustöð), unmanned 24/7, open well before 07:30. Pay at the pump with a chip-and-PIN card (have a 4-digit PIN ready — Icelandic pumps reject signature-only US cards). 📸 Keep the fuel receipt to prove a full return. ~200 m from the depot."
+        },
+        {
+          "nm": "Breakfast — KEF Café, Hotel Keflavík (optional)",
+          "arrive": "07:23",
+          "duration": 22,
+          "kind": "meal",
+          "ll": [
+            63.9952,
+            -22.5602
+          ],
+          "noRoute": true,
+          "note": "Only real hot breakfast open this early: KEF Café at Hotel Keflavík (~3–4 km / 5–7 min into town). Opens 05:00; hot food from 06:00. ☕ DECISION: only detour here if you left the campsite early and are comfortably ahead — it adds ~15–20 min round-trip and pulls you AWAY from the depot. If tight, SKIP IT and eat airside after security. Don't let breakfast threaten the 07:30 drop or the 11:25 flight."
+        },
+        {
+          "nm": "Camper Drop-off — Reykjavik Depot, Fitjabraut 3",
+          "arrive": "07:45",
           "duration": 45,
-          "driveToNext": null,
           "kind": "logistics",
           "ll": [
             63.9803,
             -22.566
           ],
-          "note": "Drop at the Fitjabraut 3 depot (NOT the terminal — it's ~3 km / 5 min away). Drop-off takes 30–45 min: walk-around inspection, fuel check, paperwork. ⛽ FILL THE TANK FIRST at the N1 next door (Fitjabraut 2) — the refuel surcharge is brutal. 📸 PHOTOGRAPH every panel/windscreen/tire before handing over keys (gravel chips are the #1 dispute). The free airport shuttle is HOURLY + pre-booked — if your inspection finishes off-cycle, just grab a taxi (~5 min, ~3,000–4,000 ISK) rather than wait. ⚠️ VERIFY with the rental (+354 539 6479): (a) depot opens by 7:30, (b) drop-off DATE is Jul 5 not Jul 6 — your booking form showed Jul 6, confirm it matches your flight day.",
-          "noRoute": true
+          "noRoute": true,
+          "note": "Drop at the Fitjabraut 3 depot (NOT the terminal — ~3 km / 5 min away). Budget 30–45 min: staff walk-around inspection, fuel-gauge check (show the N1 receipt), mileage read, paperwork. 📸 BEFORE handing over keys, photograph EVERY panel, windscreen, all four tyres/rims and the undercarriage in daylight — gravel chips are the #1 dispute. Hand back all keys, fobs, gas bottles, accessories. TRANSFER: the free depot shuttle is HOURLY + pre-booked — if inspection finishes off-cycle, don't wait, take a taxi (~5 min, ~3,000–4,000 ISK). ⚠️ VERIFY with the rental (+354 539 6479): (a) depot open by 07:30, (b) drop DATE is Jul 5 not Jul 6 (your booking form showed Jul 6)."
         },
         {
-          "nm": "Keflavík Airport (KEF)",
+          "nm": "Drive: Depot → KEF Terminal",
+          "arrive": "08:30",
+          "duration": 5,
+          "kind": "drive",
+          "ll": [
+            63.9814869,
+            -22.6281862
+          ],
+          "note": "~3 km, ~5 min from Fitjabraut 3 to the KEF departures terminal via the pre-booked depot shuttle or backup taxi."
+        },
+        {
+          "nm": "Arrive KEF Terminal — Delta DL247 11:25",
           "arrive": "08:35",
           "duration": 0,
-          "driveToNext": null,
           "kind": "logistics",
           "ll": [
             63.9814869,
             -22.6281862
           ],
-          "note": "At the terminal ~2h50m before the 11:25 AM Delta flight (DL247). July is a KEF peak month + US-bound flights are the most time-sensitive — Isavia wants you here 2.5–3 hrs early. Security 6–9 AM is the rush (30–50 min). Hit the VAT-refund/tax-free desk early if claiming it (slow in summer). Fly home."
+          "note": "At the terminal ~08:35, ~2h50m before the 11:25 AM Delta flight (DL247) to the US. July is peak season at KEF and US-bound flights are time-sensitive — Isavia advises 2.5–3 hrs early. 💳 VAT/TAX-FREE: if claiming a refund, hit the tax-free desk in departures FIRST (long summer queues; some goods inspected before check-in). Then bag-drop, security (06:00–09:00 is the rush, allow 30–50 min), passport control, boarding. Eat airside if you skipped breakfast. Fly home."
         }
       ]
     }
