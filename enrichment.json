@@ -1,0 +1,254 @@
+{
+  "Keflavík Airport (KEF)": {
+    "pid": "ChIJn3mr4vz9KUkRzSjDFQqN-Cc",
+    "rating": 3.9,
+    "count": 11053,
+    "cat": "International Airport",
+    "photos": [
+      "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_0.jpg",
+      "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_1.jpg",
+      "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_2.jpg",
+      "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_3.jpg"
+    ]
+  },
+  "Blue Lagoon": {
+    "pid": "ChIJDd_3r2Yd1kgRbvAWRIl6dPM",
+    "rating": 4.6,
+    "count": 31951,
+    "cat": "Public Bath",
+    "photos": [
+      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_0.jpg",
+      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_1.jpg",
+      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_2.jpg",
+      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_3.jpg"
+    ]
+  },
+  "Seljalandsfoss": {
+    "pid": "ChIJFSTv6K0e10gRjRcJUiDmAa4",
+    "rating": 4.8,
+    "count": 3412,
+    "cat": "Natural Feature",
+    "photos": [
+      "photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_0.jpg",
+      "photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_1.jpg",
+      "photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_2.jpg",
+      "photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_3.jpg"
+    ]
+  },
+  "Skógafoss": {
+    "pid": "ChIJFYylOXY710gRSHn-zR_HYA8",
+    "rating": 4.9,
+    "count": 4371,
+    "cat": "Natural Feature",
+    "photos": [
+      "photos/ChIJFYylOXY710gRSHn-zR_HYA8_0.jpg",
+      "photos/ChIJFYylOXY710gRSHn-zR_HYA8_1.jpg",
+      "photos/ChIJFYylOXY710gRSHn-zR_HYA8_2.jpg",
+      "photos/ChIJFYylOXY710gRSHn-zR_HYA8_3.jpg"
+    ]
+  },
+  "Vík Camping": {
+    "pid": "ChIJQV7X8UVK10gRcd6TBe2NOF8",
+    "rating": 3.7,
+    "count": 3056,
+    "cat": "Campground",
+    "photos": [
+      "photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_0.jpg",
+      "photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_1.jpg",
+      "photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_2.jpg",
+      "photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_3.jpg"
+    ]
+  },
+  "Reynisfjara Black Beach": {
+    "pid": "ChIJkfGf2zBK10gRmC1j9msDIDk",
+    "rating": 4.8,
+    "count": 2437,
+    "cat": "Tourist Attraction",
+    "photos": [
+      "photos/ChIJkfGf2zBK10gRmC1j9msDIDk_0.jpg",
+      "photos/ChIJkfGf2zBK10gRmC1j9msDIDk_1.jpg",
+      "photos/ChIJkfGf2zBK10gRmC1j9msDIDk_2.jpg",
+      "photos/ChIJkfGf2zBK10gRmC1j9msDIDk_3.jpg"
+    ]
+  },
+  "Fjaðrárgljúfur Canyon": {
+    "pid": "ChIJ3ZFCWfDl0EgRvbVlccHsIKQ",
+    "rating": 4.8,
+    "count": 6393,
+    "cat": "Scenic Spot",
+    "photos": [
+      "photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_0.jpg",
+      "photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_1.jpg",
+      "photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_2.jpg",
+      "photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_3.jpg"
+    ]
+  },
+  "Skaftafell Glacier": {
+    "pid": "ChIJ10-7T9g10EgR3Olukc-IOx0",
+    "rating": 4.8,
+    "count": 255,
+    "cat": "Nature Preserve",
+    "photos": [
+      "photos/ChIJ10-7T9g10EgR3Olukc-IOx0_0.jpg",
+      "photos/ChIJ10-7T9g10EgR3Olukc-IOx0_1.jpg",
+      "photos/ChIJ10-7T9g10EgR3Olukc-IOx0_2.jpg",
+      "photos/ChIJ10-7T9g10EgR3Olukc-IOx0_3.jpg"
+    ]
+  },
+  "Svartifoss": {
+    "pid": "ChIJV6KJ4M810EgR11NlQqEPJ-M",
+    "rating": 4.7,
+    "count": 5727,
+    "cat": "Scenic Spot",
+    "photos": [
+      "photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_0.jpg",
+      "photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_1.jpg",
+      "photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_2.jpg",
+      "photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_3.jpg"
+    ]
+  },
+  "Jökulsárlón Glacier Lagoon": {
+    "pid": "ChIJGTg61-zWz0gRqUYB4VnJBc0",
+    "rating": 4.9,
+    "count": 2979,
+    "cat": "Lake",
+    "photos": [
+      "photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_0.jpg",
+      "photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_1.jpg",
+      "photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_2.jpg",
+      "photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_3.jpg"
+    ]
+  },
+  "Diamond Beach": {
+    "pid": "ChIJ8wb7pBnXz0gRWoQH-WXoAkI",
+    "rating": 4.8,
+    "count": 4952,
+    "cat": "Beach",
+    "photos": [
+      "photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_0.jpg",
+      "photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_1.jpg",
+      "photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_2.jpg",
+      "photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_3.jpg"
+    ]
+  },
+  "Svínafell Campground": {
+    "pid": "ChIJNdKvONA20EgRl1oyHaN1OSk",
+    "rating": 4.4,
+    "count": 1050,
+    "cat": "Campground",
+    "photos": [
+      "photos/ChIJNdKvONA20EgRl1oyHaN1OSk_0.jpg",
+      "photos/ChIJNdKvONA20EgRl1oyHaN1OSk_1.jpg",
+      "photos/ChIJNdKvONA20EgRl1oyHaN1OSk_2.jpg",
+      "photos/ChIJNdKvONA20EgRl1oyHaN1OSk_3.jpg"
+    ]
+  },
+  "Seljavallalaug Pool": {
+    "pid": "ChIJ88Mrkcs810gRyUoreu0vMd4",
+    "rating": 4,
+    "count": 1215,
+    "cat": "Swimming Pool",
+    "photos": [
+      "photos/ChIJ88Mrkcs810gRyUoreu0vMd4_0.jpg",
+      "photos/ChIJ88Mrkcs810gRyUoreu0vMd4_1.jpg",
+      "photos/ChIJ88Mrkcs810gRyUoreu0vMd4_2.jpg",
+      "photos/ChIJ88Mrkcs810gRyUoreu0vMd4_3.jpg"
+    ]
+  },
+  "Kerið Crater": {
+    "pid": "ChIJV_L2VbeL1kgRB9kuweBEWlE",
+    "rating": 4.5,
+    "count": 19948,
+    "cat": "Tourist Attraction",
+    "photos": [
+      "photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_0.jpg",
+      "photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_1.jpg",
+      "photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_2.jpg",
+      "photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_3.jpg"
+    ]
+  },
+  "Secret Lagoon (Flúðir)": {
+    "pid": "ChIJAzrP-_OV1kgRqbTTIAgihLo",
+    "rating": 4.6,
+    "count": 8755,
+    "cat": "Public Bath",
+    "photos": [
+      "photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_0.jpg",
+      "photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_1.jpg",
+      "photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_2.jpg",
+      "photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_3.jpg"
+    ]
+  },
+  "Brúarfoss": {
+    "pid": "ChIJ6cRQKbSZ1kgRgcrK-RjqESY",
+    "rating": 4.8,
+    "count": 3981,
+    "cat": "Tourist Attraction",
+    "photos": [
+      "photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_0.jpg",
+      "photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_1.jpg",
+      "photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_2.jpg",
+      "photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_3.jpg"
+    ]
+  },
+  "Gullfoss Falls": {
+    "pid": "ChIJ_W-9cc6l1kgRZbQlcba-FYc",
+    "rating": 4.9,
+    "count": 598,
+    "cat": "Tourist Attraction",
+    "photos": [
+      "photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_0.jpg",
+      "photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_1.jpg",
+      "photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_2.jpg",
+      "photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_3.jpg"
+    ]
+  },
+  "Strokkur Geyser": {
+    "pid": "ChIJQx6ihstf1kgR4wuu2I9A_hM",
+    "rating": 4.7,
+    "count": 13370,
+    "cat": "Fountain",
+    "photos": [
+      "photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_0.jpg",
+      "photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_1.jpg",
+      "photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_2.jpg",
+      "photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_3.jpg"
+    ]
+  },
+  "Þingvellir National Park": {
+    "pid": "ChIJe2kT-x-B1kgR8mKSB4tsdWs",
+    "rating": 4.7,
+    "count": 24193,
+    "cat": "National Park",
+    "photos": [
+      "photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_0.jpg",
+      "photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_1.jpg",
+      "photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_2.jpg",
+      "photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_3.jpg"
+    ]
+  },
+  "Reykjadalur Hot River": {
+    "pid": "ChIJf-ftCwJk1kgRrDOC5eVTA3s",
+    "rating": 4.7,
+    "count": 5137,
+    "cat": "Hiking Area",
+    "photos": [
+      "photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_0.jpg",
+      "photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_1.jpg",
+      "photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_2.jpg",
+      "photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_3.jpg"
+    ]
+  },
+  "Camper Drop-off (Keflavík)": {
+    "pid": "ChIJgTsGJPcD1kgRtE4QDqW47zY",
+    "rating": 4.3,
+    "count": 101,
+    "cat": "Services",
+    "photos": [
+      "photos/ChIJgTsGJPcD1kgRtE4QDqW47zY_0.jpg",
+      "photos/ChIJgTsGJPcD1kgRtE4QDqW47zY_1.jpg",
+      "photos/ChIJgTsGJPcD1kgRtE4QDqW47zY_2.jpg",
+      "photos/ChIJgTsGJPcD1kgRtE4QDqW47zY_3.jpg"
+    ]
+  }
+}

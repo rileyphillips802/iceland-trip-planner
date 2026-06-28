@@ -57,6 +57,18 @@
   .gmlink{display:block;text-align:right;margin-top:.7rem;font-size:.82rem;color:var(--glacier);text-decoration:none;}
   .gmlink:hover{text-decoration:underline;}
 
+  /* plain inline time line on stop card + sunrise/sunset on day intro */
+  .timeline{font-size:.86rem;color:var(--bone-dim);margin:.9rem 0 .2rem;}
+  .timeline strong{color:var(--bone);font-weight:700;}
+  .suntime{font-size:.86rem;color:var(--star);margin:.2rem 0 1rem;}
+  .suntime strong{color:var(--bone);font-weight:700;}
+
+  /* drive gap rows in the intro stop list */
+  .drivegap{display:flex;align-items:center;gap:.5rem;padding:.25rem 0 .25rem 1.1rem;
+    font-size:.78rem;color:var(--bone-dim);}
+  .drivegap::before{content:"";width:2px;height:18px;background:rgba(255,255,255,.15);margin-left:25px;margin-right:.7rem;}
+  .mt .stay{color:var(--aurora);} .mt .stay.tight{color:var(--warn);}
+
   .intro .narr{font-size:1.02rem;line-height:1.5;color:var(--bone-dim);margin:.6rem 0 1rem;}
   .openroute{display:inline-flex;align-items:center;gap:.5rem;background:#f4f2ec;color:#11161c;font-weight:700;
     font-size:.95rem;border:none;border-radius:999px;padding:.6rem 1.15rem;cursor:pointer;text-decoration:none;}
@@ -92,63 +104,99 @@
 <div class="card" id="card" style="display:none;"></div>
 
 <script>
-const PHOTOS = {"Keflavík Airport (KEF)": ["photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_0.jpg", "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_1.jpg", "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_2.jpg", "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_3.jpg"], "Seljalandsfoss": ["photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_0.jpg", "photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_1.jpg", "photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_2.jpg", "photos/ChIJFSTv6K0e10gRjRcJUiDmAa4_3.jpg"], "Gljúfrabúi": ["photos/ChIJF7NTFbAe10gRLl8U7LZVapY_0.jpg", "photos/ChIJF7NTFbAe10gRLl8U7LZVapY_1.jpg", "photos/ChIJF7NTFbAe10gRLl8U7LZVapY_2.jpg", "photos/ChIJF7NTFbAe10gRLl8U7LZVapY_3.jpg"], "Skógafoss": ["photos/ChIJFYylOXY710gRSHn-zR_HYA8_0.jpg", "photos/ChIJFYylOXY710gRSHn-zR_HYA8_1.jpg", "photos/ChIJFYylOXY710gRSHn-zR_HYA8_2.jpg", "photos/ChIJFYylOXY710gRSHn-zR_HYA8_3.jpg"], "Reynisfjara Black Beach": ["photos/ChIJkfGf2zBK10gRmC1j9msDIDk_0.jpg", "photos/ChIJkfGf2zBK10gRmC1j9msDIDk_1.jpg", "photos/ChIJkfGf2zBK10gRmC1j9msDIDk_2.jpg", "photos/ChIJkfGf2zBK10gRmC1j9msDIDk_3.jpg"], "Vík Camping": ["photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_0.jpg", "photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_1.jpg", "photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_2.jpg", "photos/ChIJQV7X8UVK10gRcd6TBe2NOF8_3.jpg"], "Fjaðrárgljúfur Canyon": ["photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_0.jpg", "photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_1.jpg", "photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_2.jpg", "photos/ChIJ3ZFCWfDl0EgRvbVlccHsIKQ_3.jpg"], "Skaftafell Glacier": ["photos/ChIJ10-7T9g10EgR3Olukc-IOx0_0.jpg", "photos/ChIJ10-7T9g10EgR3Olukc-IOx0_1.jpg", "photos/ChIJ10-7T9g10EgR3Olukc-IOx0_2.jpg", "photos/ChIJ10-7T9g10EgR3Olukc-IOx0_3.jpg"], "Jökulsárlón Glacier Lagoon": ["photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_0.jpg", "photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_1.jpg", "photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_2.jpg", "photos/ChIJGTg61-zWz0gRqUYB4VnJBc0_3.jpg"], "Diamond Beach": ["photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_0.jpg", "photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_1.jpg", "photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_2.jpg", "photos/ChIJ8wb7pBnXz0gRWoQH-WXoAkI_3.jpg"], "Svínafell Campground": ["photos/ChIJNdKvONA20EgRl1oyHaN1OSk_0.jpg", "photos/ChIJNdKvONA20EgRl1oyHaN1OSk_1.jpg", "photos/ChIJNdKvONA20EgRl1oyHaN1OSk_2.jpg", "photos/ChIJNdKvONA20EgRl1oyHaN1OSk_3.jpg"], "Kerið Crater": ["photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_0.jpg", "photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_1.jpg", "photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_2.jpg", "photos/ChIJV_L2VbeL1kgRB9kuweBEWlE_3.jpg"], "Secret Lagoon (Flúðir)": ["photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_0.jpg", "photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_1.jpg", "photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_2.jpg", "photos/ChIJAzrP-_OV1kgRqbTTIAgihLo_3.jpg"], "Brúarfoss": ["photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_0.jpg", "photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_1.jpg", "photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_2.jpg", "photos/ChIJ6cRQKbSZ1kgRgcrK-RjqESY_3.jpg"], "Gullfoss Falls": ["photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_0.jpg", "photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_1.jpg", "photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_2.jpg", "photos/ChIJ_W-9cc6l1kgRZbQlcba-FYc_3.jpg"], "Strokkur Geyser": ["photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_0.jpg", "photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_1.jpg", "photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_2.jpg", "photos/ChIJQx6ihstf1kgR4wuu2I9A_hM_3.jpg"], "Þingvellir National Park": ["photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_0.jpg", "photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_1.jpg", "photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_2.jpg", "photos/ChIJe2kT-x-B1kgR8mKSB4tsdWs_3.jpg"], "Reykjadalur Hot River": ["photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_0.jpg", "photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_1.jpg", "photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_2.jpg", "photos/ChIJf-ftCwJk1kgRrDOC5eVTA3s_3.jpg"], "Blue Lagoon": ["photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_0.jpg", "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_1.jpg", "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_2.jpg", "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_3.jpg"], "Sky Lagoon (alternative)": ["photos/ChIJpyUozoYL1kgREGm6RWPXuio_0.jpg", "photos/ChIJpyUozoYL1kgREGm6RWPXuio_1.jpg", "photos/ChIJpyUozoYL1kgREGm6RWPXuio_2.jpg", "photos/ChIJpyUozoYL1kgREGm6RWPXuio_3.jpg"], "Mjódd — Luggage Storage": ["photos/ChIJVQh-FWhz1kgR_J2Y5Q3ubBY_0.jpg", "photos/ChIJVQh-FWhz1kgR_J2Y5Q3ubBY_1.jpg", "photos/ChIJVQh-FWhz1kgR_J2Y5Q3ubBY_2.jpg", "photos/ChIJVQh-FWhz1kgR_J2Y5Q3ubBY_3.jpg"], "Seljavallalaug Pool": ["photos/ChIJ88Mrkcs810gRyUoreu0vMd4_0.jpg", "photos/ChIJ88Mrkcs810gRyUoreu0vMd4_1.jpg", "photos/ChIJ88Mrkcs810gRyUoreu0vMd4_2.jpg", "photos/ChIJ88Mrkcs810gRyUoreu0vMd4_3.jpg"], "Svartifoss": ["photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_0.jpg", "photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_1.jpg", "photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_2.jpg", "photos/ChIJV6KJ4M810EgR11NlQqEPJ-M_3.jpg"]};
+/* Data is loaded at runtime from trip.json + enrichment.json (see boot() at bottom).
+   These are populated before initMap runs. */
+let DAYS=[], FLAT=[], TRIP_META=null;
+const FALLBACK_DRIVE_MIN=45; // used only if neither live nor stored drive time is known
 
-const PLACE_DATA = {"Keflavík Airport (KEF)": {"pid": "ChIJn3mr4vz9KUkRzSjDFQqN-Cc", "rating": 3.9, "count": 11053, "cat": "International Airport"}, "Seljalandsfoss": {"pid": "ChIJFSTv6K0e10gRjRcJUiDmAa4", "rating": 4.8, "count": 3412, "cat": "Natural Feature"}, "Gljúfrabúi": {"pid": "ChIJF7NTFbAe10gRLl8U7LZVapY", "rating": 4.9, "count": 5359, "cat": "Tourist Attraction"}, "Skógafoss": {"pid": "ChIJFYylOXY710gRSHn-zR_HYA8", "rating": 4.9, "count": 4371, "cat": "Natural Feature"}, "Reynisfjara Black Beach": {"pid": "ChIJkfGf2zBK10gRmC1j9msDIDk", "rating": 4.8, "count": 2437, "cat": "Tourist Attraction"}, "Vík Camping": {"pid": "ChIJQV7X8UVK10gRcd6TBe2NOF8", "rating": 3.7, "count": 3056, "cat": "Campground"}, "Fjaðrárgljúfur Canyon": {"pid": "ChIJ3ZFCWfDl0EgRvbVlccHsIKQ", "rating": 4.8, "count": 6393, "cat": "Scenic Spot"}, "Skaftafell Glacier": {"pid": "ChIJ10-7T9g10EgR3Olukc-IOx0", "rating": 4.8, "count": 255, "cat": "Nature Preserve"}, "Svartifoss": {"pid": "ChIJV6KJ4M810EgR11NlQqEPJ-M", "rating": 4.7, "count": 5727, "cat": "Scenic Spot"}, "Jökulsárlón Glacier Lagoon": {"pid": "ChIJGTg61-zWz0gRqUYB4VnJBc0", "rating": 4.9, "count": 2979, "cat": "Lake"}, "Diamond Beach": {"pid": "ChIJ8wb7pBnXz0gRWoQH-WXoAkI", "rating": 4.8, "count": 4952, "cat": "Beach"}, "Svínafell Campground": {"pid": "ChIJNdKvONA20EgRl1oyHaN1OSk", "rating": 4.4, "count": 1050, "cat": "Campground"}, "Kerið Crater": {"pid": "ChIJV_L2VbeL1kgRB9kuweBEWlE", "rating": 4.5, "count": 19948, "cat": "Tourist Attraction"}, "Secret Lagoon (Flúðir)": {"pid": "ChIJAzrP-_OV1kgRqbTTIAgihLo", "rating": 4.6, "count": 8755, "cat": "Public Bath"}, "Brúarfoss": {"pid": "ChIJ6cRQKbSZ1kgRgcrK-RjqESY", "rating": 4.8, "count": 3981, "cat": "Tourist Attraction"}, "Gullfoss Falls": {"pid": "ChIJ_W-9cc6l1kgRZbQlcba-FYc", "rating": 4.9, "count": 598, "cat": "Tourist Attraction"}, "Strokkur Geyser": {"pid": "ChIJQx6ihstf1kgR4wuu2I9A_hM", "rating": 4.7, "count": 13370, "cat": "Fountain"}, "Þingvellir National Park": {"pid": "ChIJe2kT-x-B1kgR8mKSB4tsdWs", "rating": 4.7, "count": 24193, "cat": "National Park"}, "Reykjadalur Hot River": {"pid": "ChIJf-ftCwJk1kgRrDOC5eVTA3s", "rating": 4.7, "count": 5137, "cat": "Hiking Area"}, "Blue Lagoon": {"pid": "ChIJDd_3r2Yd1kgRbvAWRIl6dPM", "rating": 4.6, "count": 31951, "cat": "Public Bath"}, "Sky Lagoon (alternative)": {"pid": "ChIJpyUozoYL1kgREGm6RWPXuio", "rating": 4.7, "count": 9006, "cat": "Public Bath"}, "Mjódd — Luggage Storage": {"pid": "ChIJVQh-FWhz1kgR_J2Y5Q3ubBY", "rating": 3.7, "count": 49, "cat": "Bus stop"}, "Seljavallalaug Pool": {"pid": "ChIJ88Mrkcs810gRyUoreu0vMd4", "rating": 4, "count": 1215, "cat": "Swimming Pool"}};
+/* Build the in-memory DAYS structure the rest of the app expects from the two
+   loaded JSON files. Maps enrichment onto each stop by name:
+     s.pd = {pid,rating,count,cat} | null   (null = no place; rate banner hidden)
+     s.photos = [local paths] | []          ([] = empty carousel banner) */
+function buildData(trip, enrichment){
+  TRIP_META=trip.meta||null;
+  DAYS=trip.days.map(d=>({
+    n:d.n, title:d.title, date:d.date, narr:d.narr, overnight:d.overnight,
+    dayStart:d.dayStart||null, daylight:d.daylight||null,
+    stops:d.stops.map(s=>({nm:s.nm, arrive:s.arrive||null, duration:(s.duration!=null?s.duration:0),
+      driveToNext:(s.driveToNext!=null?s.driveToNext:null), kind:s.kind||null,
+      ll:s.ll, note:s.note, noRoute:!!s.noRoute}))
+  }));
+  let gi=0;
+  DAYS.forEach((d,di)=>d.stops.forEach((s,si)=>{
+    s._idx=++gi; s._di=di; s._si=si; s._day=d.n; s._dayTotal=d.stops.length;
+    const e=enrichment[s.nm];
+    s.pd=(e&&e.pid)?{pid:e.pid,rating:e.rating,count:e.count,cat:e.cat}:null;
+    s.photos=(e&&e.photos)?e.photos:[];
+  }));
+  FLAT=DAYS.flatMap(d=>d.stops);
+  DAYS.forEach(d=>cascade(d));
+}
 
-const DAYS = [
-  {n:1,title:'KEF to Vík — Waterfall Alley',date:'THU 14 AUG',
-   narr:'Pick up the campervan and head east on Route 1. Four world-class waterfalls in a row, then a hot-spring soak, ending at the black-sand beach by Vík. ~3 hrs of pure driving but budget the whole day.',
-   stops:[
-    {nm:'Keflavík Airport (KEF)',t:'9:00 AM',ll:[63.9814869,-22.6281862],note:"Pick up campervan. Buy duty-free alcohol here — it's far cheaper and more limited in town. Grab cash + SIM before you leave."},
-    {nm:'Seljalandsfoss',t:'11:30 AM',ll:[63.6156232,-19.9885688],note:'The one you can walk BEHIND. You will get soaked — bring full rain gear. Paid parking.'},
-    {nm:'Gljúfrabúi',t:'12:30 PM',ll:[63.6208631,-19.9864486],note:'Hidden falls in a canyon, same parking lot — 12-min walk. Waterproof boots; you rock-hop a creek to get in.'},
-    {nm:'Seljavallalaug Pool',t:'1:30 PM',ll:[63.5659791,-19.6091423],note:'Historic pool hidden in a valley, 20-min walk in. Lukewarm, not hot. Rough changing rooms. Skip if running late.'},
-    {nm:'Skógafoss',t:'3:00 PM',ll:[63.5320523,-19.5113706],note:'Massive and thunderous, rainbows on sunny days. Climb the stairs to the top viewpoint.'},
-    {nm:'Reynisfjara Black Beach',t:'5:00 PM',ll:[63.4142559,-19.0104132],note:'Basalt columns + sea stacks. DANGER: sneaker waves kill people here. Never turn your back on the ocean.'},
-    {nm:'Vík Camping',t:'6:00 PM',ll:[63.419288,-18.995537],note:'Night 1 base. Large, clean, cozy common kitchen. Showers ~300kr (coins at reception). Crowded in summer.'}
-   ]},
-  {n:2,title:'Vík to Hof — Canyons, Glaciers & Icebergs',date:'FRI 15 AUG',
-   narr:'The most dramatic day. A slot canyon, the Vatnajökull glacier area, then the famous iceberg lagoon and Diamond Beach. ~2.5 hrs driving.',
-   stops:[
-    {nm:'Fjaðrárgljúfur Canyon',t:'10:00 AM',ll:[63.771279,-18.1718159],note:"Stunning serpentine slot canyon (the 'Justin Bieber canyon'). ~20 min walk up to viewpoints. Pay parking or you'll be fined."},
-    {nm:'Skaftafell Glacier',t:'12:00 PM',ll:[64.0268002,-16.9171872],note:'Part of Vatnajökull National Park. ~3.5km hike to the glacier tongue. Guided ice walks bookable here (crampons provided).'},
-    {nm:'Svartifoss',t:'12:30 PM',ll:[64.0275282,-16.9753082],note:'The "black waterfall" over hexagonal basalt columns — same Skaftafell trailhead. ~2mi round trip. Pair with the glacier hike.'},
-    {nm:'Jökulsárlón Glacier Lagoon',t:'3:30 PM',ll:[64.0784458,-16.2305536],note:'Icebergs calving off the glacier drift across the lagoon. Watch for seals. Boat tours available. A trip highlight.'},
-    {nm:'Diamond Beach',t:'4:45 PM',ll:[64.044334,-16.1776622],note:'Ice chunks wash up like diamonds on black sand. Go at LOW TIDE for the classic look. Across the road from the lagoon.'},
-    {nm:'Svínafell Campground',t:'6:30 PM',ll:[63.9790093,-16.8536533],note:'Night 2 base — repeatedly called the best site on the South Coast. ~$12pp. Great kitchen, clean showers, dark-sky views.'}
-   ]},
-  {n:3,title:'Hof toward the Golden Circle',date:'SAT 16 AUG',
-   narr:'Your longest drive, heading back west. Light on stops by design — a transit day to position you for the Golden Circle. Fuel up; long gaps between stations. ~3.5–4 hrs driving.',
-   stops:[
-    {nm:'Kerið Crater',t:'2:30 PM',ll:[64.0412785,-20.8851466],note:'Volcanic crater lake with a red rim — small entry fee. Walk the rim + down to the water. Toilets close 9pm.'},
-    {nm:'Secret Lagoon (Flúðir)',t:'4:00 PM',ll:[64.1373976,-20.3096984],note:"Iceland's oldest pool — less touristy than Blue/Sky, ~$35pp. Reservation recommended. Camp nearby in Flúðir for Night 3."}
-   ]},
-  {n:4,title:'The Golden Circle',date:'SUN 17 AUG',
-   narr:'The classic trio plus a blue-water bonus. Þingvellir and Geysir are the heart of the Golden Circle. ~4 hrs across stops.',
-   stops:[
-    {nm:'Brúarfoss',t:'9:00 AM',ll:[64.2643026,-20.5157467],note:"Unreal turquoise-blue water. There's now a closer parking lot — check the current trail before the long river hike."},
-    {nm:'Gullfoss Falls',t:'11:00 AM',ll:[64.3270716,-20.1199478],note:'The "Golden Falls" — a thundering two-tier monster. Upper + lower platforms. Café on site for lunch.'},
-    {nm:'Strokkur Geyser',t:'12:15 PM',ll:[64.3127094,-20.300721],note:'Erupts every 5–10 min, up to 30m. Free (pay parking). Walk uphill for the geothermal field view.'},
-    {nm:'Þingvellir National Park',t:'2:00 PM',ll:[64.2821725,-21.0764491],note:'Walk between the North American & Eurasian tectonic plates; site of the original Icelandic parliament. Pay parking ~1000kr.'},
-    {nm:'Reykjadalur Hot River',t:'4:30 PM',ll:[64.0218948,-21.2111691],note:"Bathe in a naturally hot river — but it's a ~3km uphill hike each way. Towel + water shoes. Camp in Hveragerði for Night 4."}
-   ]},
-  {n:5,title:'Lagoon Day & Departure',date:'MON 18 AUG',
-   narr:"Soak, then return the camper and fly out. Don't try both lagoons — they're in opposite directions. Your 8am Blue Lagoon booking is 20 min from KEF, so that's the logical pick.",
-   stops:[
-    {nm:'Blue Lagoon',t:'8:00 AM',ll:[63.8807176,-22.4472963],note:"Your 8am reservation. Iconic but pricey + crowded. ~20 min from KEF, the logical pre-flight soak. Book the package with the facial + drink."},
-    {nm:'Sky Lagoon (alternative)',t:'—',ll:[64.1164891,-21.9462908],note:'ALTERNATIVE, not in addition: infinity edge over the ocean, near Reykjavík. Wrong direction from the airport. Pick one.',noRoute:true},
-    {nm:'Mjódd — Luggage Storage',t:'12:00 PM',ll:[64.109702,-21.842643],note:'Luggage storage between camper return and your flight. Netto 24/7 supermarket nearby for last supplies.'},
-    {nm:'Keflavík Airport (KEF)',t:'2:00 PM',ll:[63.9814869,-22.6281862],note:'Return campervan + fly out. Leave a buffer for the fuel-up and rental shuttle.'}
-   ]}
-];
-
-let gi=0;
-DAYS.forEach((d,di)=>d.stops.forEach((s,si)=>{s._idx=++gi;s._di=di;s._si=si;s._day=d.n;s._dayTotal=d.stops.length;s.pd=PLACE_DATA[s.nm]||null;s.photos=PHOTOS[s.nm]||[];}));
-const FLAT=DAYS.flatMap(d=>d.stops);
-
-/* Prefetch all images once into the browser cache */
-(function preload(){ const seen={}; FLAT.forEach(s=>s.photos.forEach(u=>{if(!seen[u]){seen[u]=1;const i=new Image();i.src=u;}})); })();
+/* ---- Time helpers ---- */
+/* Parse "HH:MM" (24-hour, as stored in JSON) -> minutes since midnight. */
+function hm(t){
+  if(!t) return null;
+  const m=String(t).match(/^(\d{1,2}):(\d{2})$/); if(!m) return null;
+  return (+m[1])*60+(+m[2]);
+}
+/* Minutes since midnight -> "HH:MM" (24-hour) for storing back to JSON. */
+function toHM(mins){
+  mins=((Math.round(mins)%1440)+1440)%1440;
+  const h=Math.floor(mins/60), mm=mins%60;
+  return String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0');
+}
+/* Minutes since midnight -> "12:30 PM" for the UI. */
+function fmt12(mins){
+  if(mins==null) return '';
+  mins=((Math.round(mins)%1440)+1440)%1440;
+  let h=Math.floor(mins/60); const mm=mins%60;
+  const ap=h<12?'AM':'PM'; let hh=h%12; if(hh===0)hh=12;
+  return hh+':'+String(mm).padStart(2,'0')+' '+ap;
+}
+/* Duration in minutes -> "1h 20m" / "45 min". */
+function fmtDur(mins){
+  if(mins==null) return '';
+  mins=Math.round(mins);
+  if(mins<60) return mins+' min';
+  const h=Math.floor(mins/60), mm=mins%60;
+  return mm?h+'h '+mm+'m':h+' hr';
+}
+/* Drive minutes for the leg departing FROM stop s:
+   prefer the live Google Directions leg (s._driveNext seconds), else stored
+   driveToNext, else a fallback. Last stop of a day has no leg -> null. */
+function driveMinFrom(s){
+  const day=DAYS[s._di];
+  if(s._si>=day.stops.length-1) return null;
+  if(s._driveNext!=null) return Math.round(s._driveNext/60);
+  if(s.driveToNext!=null) return s.driveToNext;
+  return FALLBACK_DRIVE_MIN;
+}
+/* CASCADE ENGINE — authoritative.
+   Given a day (dayStart + each stop's editable `duration` + per-leg drive time),
+   recompute every stop's `arrive` (24-hour string + cached _arriveMin). The first
+   stop arrives at dayStart; each subsequent arrival = prev arrival + prev duration
+   + drive leg. Returns the day-end minute (last arrival + last duration). */
+function cascade(day){
+  let t=hm(day.dayStart);
+  if(t==null && day.stops.length) t=hm(day.stops[0].arrive)||0;
+  day.stops.forEach((s,i)=>{
+    s._arriveMin=t;
+    s.arrive=toHM(t);
+    t+=(s.duration||0);
+    const dm=driveMinFrom(s);
+    if(dm!=null) t+=dm;
+  });
+  day._endMin=t; // after the last stop's duration (last stop has no drive leg)
+  return t;
+}
+/* "time here" for a stop = its explicit duration. Last stop = wrap-up. */
+function timeHere(s){
+  const day=DAYS[s._di];
+  const last=s._si===day.stops.length-1;
+  if(last) return {mins:s.duration||0, last:true};
+  return {mins:s.duration||0, drive:driveMinFrom(s)};
+}
 
 let map, pinEls={}, dayRenderers={}, dayDrive={};
 let view={mode:'day-intro',day:1,stopIdx:null};
@@ -220,11 +268,17 @@ function initMap(){
       waypoints:pts.slice(1,-1).map(s=>({location:{lat:s.ll[0],lng:s.ll[1]},stopover:true})),
       travelMode:g.TravelMode.DRIVING},function(res,st){
         if(st!=='OK'){ straightFallback(day,pts); return; }
-        let secs=0; res.routes[0].legs.forEach(l=>secs+=l.duration.value); dayDrive[day.n]=secs/3600;
+        let secs=0, legs=[]; res.routes[0].legs.forEach(l=>{secs+=l.duration.value;legs.push(l.duration.value);});
+        dayDrive[day.n]=secs/3600;
+        // Map each leg's drive seconds onto the stop it departs FROM (skip noRoute stops).
+        const routedStops=day.stops.filter(s=>!s.noRoute);
+        routedStops.forEach((s,i)=>{ if(i<legs.length) s._driveNext=legs[i]; });
+        cascade(day); // live drive times arrived — recompute arrivals for this day
         const rend=new g.DirectionsRenderer({map:null,directions:res,suppressMarkers:true,preserveViewport:true,
           polylineOptions:{strokeColor:'#4f9fff',strokeOpacity:.95,strokeWeight:4}});
         dayRenderers[day.n]=rend; if(view.day===day.n)rend.setMap(map);
-        if(view.mode==='day-intro'&&view.day===day.n)renderCard();
+        // Drive data just arrived for this day — refresh the card if we're viewing it (intro OR a stop).
+        if(view.day===day.n)renderCard();
       });
   });
 
@@ -268,14 +322,35 @@ function step(dir){
 
 function renderCard(){const card=document.getElementById('card');card.style.display='flex';if(view.mode==='day-intro')renderIntro(card);else renderStop(card);}
 
+/* Sunrise/sunset readout for a day, plain text: "☀ Sunrise 3:07 AM · Sunset 11:54 PM". */
+function daylightHtml(day){
+  if(!day.daylight) return '';
+  const sr=hm(day.daylight.sunrise), ss=hm(day.daylight.sunset);
+  const parts=[];
+  if(sr!=null) parts.push('Sunrise <strong>'+fmt12(sr)+'</strong>');
+  if(ss!=null) parts.push('Sunset <strong>'+fmt12(ss)+'</strong>');
+  if(!parts.length) return '';
+  return '<div class="suntime">☀ '+parts.join(' · ')+'</div>';
+}
+
 function renderIntro(card){
   const day=DAYS[view.day-1];
+  cascade(day);
   const drive=dayDrive[day.n]?('~'+dayDrive[day.n].toFixed(1)+' hrs driving'):'';
   let mini='';
-  day.stops.forEach(s=>{mini+='<div class="mini" data-idx="'+s._idx+'"><div class="mthumb" '+(s.photos[0]?'style="background-image:url('+s.photos[0]+')"':'')+'></div><div><div class="mt">'+s.t+'</div><div class="mn">'+s.nm+'</div></div></div>';});
+  day.stops.forEach((s,i)=>{
+    const th=timeHere(s);
+    let stay='';
+    if(th.mins!=null && !th.last){ stay=' · <span class="stay">'+fmtDur(th.mins)+' here</span>'; }
+    else if(th.last && th.mins>0){ stay=' · <span class="stay">'+fmtDur(th.mins)+' here</span>'; }
+    mini+='<div class="mini" data-idx="'+s._idx+'"><div class="mthumb" '+(s.photos[0]?'style="background-image:url('+s.photos[0]+')"':'')+'></div><div><div class="mt">'+fmt12(s._arriveMin)+stay+'</div><div class="mn">'+s.nm+'</div></div></div>';
+    const driveMin=driveMinFrom(s);
+    if(driveMin!=null && i<day.stops.length-1){ mini+='<div class="drivegap">🚗 '+fmtDur(driveMin)+' drive</div>'; }
+  });
   card.innerHTML=
     '<div class="cb intro"><div class="meta">DAY '+day.n+'</div><div class="ttl">'+day.title+'</div>'+
       '<div class="narr">'+day.narr+'</div>'+
+      daylightHtml(day)+
       '<a class="openroute" href="'+gmapsRouteUrl(day)+'" target="_blank" rel="noopener">➤ Open route</a>'+
       (drive?'<div class="drivepill">'+drive+'</div>':'')+'<div class="section-h">Stops</div>'+mini+'</div>'+
     footer();
@@ -283,17 +358,28 @@ function renderIntro(card){
   card.querySelectorAll('.mini').forEach(el=>el.onclick=function(){showStop(+el.dataset.idx);});
 }
 
+/* Plain inline time line on the stop card: "Arrive 5:02 PM · 31 min drive to next".
+   Arrival is computed by cascade (durations come from trip.json, not editable). */
+function timeStripHtml(s){
+  const driveMin=driveMinFrom(s);
+  let txt='Arrive <strong>'+fmt12(s._arriveMin)+'</strong>';
+  if(driveMin!=null) txt+=' · '+fmtDur(driveMin)+' drive to next';
+  return '<div class="timeline">'+txt+'</div>';
+}
+
 function renderStop(card){
   const s=FLAT.find(x=>x._idx===view.stopIdx), pd=s.pd;
-  const rate=pd?('<span class="num">'+pd.rating+'</span> <span class="star">★</span> <span>('+pd.count.toLocaleString()+')</span> <span>· '+pd.cat+'</span>'):'';
+  cascade(DAYS[s._di]);
+  const rate=(pd&&pd.rating!=null)?('<span class="num">'+pd.rating+'</span> <span class="star">★</span> <span>('+(pd.count!=null?pd.count.toLocaleString():'—')+')</span>'+(pd.cat?' <span>· '+pd.cat+'</span>':'')):'';
   let imgs='',dots='';
   s.photos.forEach((u,i)=>{imgs+='<div class="img'+(i===0?' on':'')+'" style="background-image:url('+u+')"></div>';dots+='<div class="dot'+(i===0?' on':'')+'"></div>';});
   card.innerHTML=
     '<div class="ph" id="ph">'+imgs+
       '<button class="nav l" id="navl"></button><button class="nav r" id="navr"></button>'+
       '<button class="close" id="closeBtn">×</button><div class="dots" id="dots">'+dots+'</div></div>'+
-    '<div class="cb"><div class="meta">Day '+s._day+' · '+s.t+'</div><div class="ttl">'+s.nm+'</div>'+
+    '<div class="cb"><div class="meta">Day '+s._day+' · '+fmt12(s._arriveMin)+'</div><div class="ttl">'+s.nm+'</div>'+
       (rate?'<div class="rate">'+rate+'</div>':'')+
+      timeStripHtml(s)+
       '<div class="note"><div class="lbl">Notes from Claude</div><div class="txt">'+s.note+'</div></div>'+
       '<a class="gmlink" href="'+gmapsPlaceUrl(s)+'" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>'+
     footer();
@@ -303,6 +389,7 @@ function renderStop(card){
   document.getElementById('navl').onclick=function(){photoStep(-1);};
   document.getElementById('navr').onclick=function(){photoStep(1);};
 }
+
 function photoStep(dir){
   if(curPhotos.length<2)return;
   curPhoto=(curPhoto+dir+curPhotos.length)%curPhotos.length;
@@ -329,10 +416,31 @@ function wireFooter(){
 }
 
 const API_KEY="AIzaSyCOKJB3c7_aopQPP1gaEoQ0g6NQ_M9K5Tg";
-const sc=document.createElement('script');
-sc.src='https://maps.googleapis.com/maps/api/js?key='+API_KEY+'&callback=__start&v=weekly&loading=async';
-sc.async=true; document.head.appendChild(sc);
+
+/* __start is the Maps JS callback; data is already loaded by the time it fires. */
 window.__start=function(){defineOverlay();initMap();};
+
+/* Boot: fetch trip.json + enrichment.json FIRST, build DAYS, THEN load Maps. */
+async function boot(){
+  try{
+    const [trip,enrichment]=await Promise.all([
+      fetch('trip.json').then(r=>{if(!r.ok)throw new Error('trip.json '+r.status);return r.json();}),
+      fetch('enrichment.json').then(r=>r.ok?r.json():{}).catch(()=>({}))
+    ]);
+    buildData(trip,enrichment);
+    if(TRIP_META&&TRIP_META.title)document.title=TRIP_META.title;
+    /* Prefetch all images once into the browser cache. */
+    const seen={}; FLAT.forEach(s=>s.photos.forEach(u=>{if(!seen[u]){seen[u]=1;const i=new Image();i.src=u;}}));
+    const sc=document.createElement('script');
+    sc.src='https://maps.googleapis.com/maps/api/js?key='+API_KEY+'&callback=__start&v=weekly&loading=async';
+    sc.async=true; document.head.appendChild(sc);
+  }catch(err){
+    document.getElementById('map').innerHTML=
+      '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9aa0a8;font-size:1rem;padding:2rem;text-align:center;">Failed to load trip data: '+err.message+'</div>';
+    console.error(err);
+  }
+}
+boot();
 </script>
 </body>
 </html>
