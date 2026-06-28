@@ -584,7 +584,7 @@
         {
           "nm": "Seljavallalaug Pool",
           "arrive": "12:40",
-          "duration": 120,
+          "duration": 75,
           "kind": "soak",
           "ll": [
             63.5659791,
@@ -593,11 +593,11 @@
           "cost": "Free",
           "book": "no",
           "parking": "Free gravel lot at the end of Route 242. ~15–20 min walk in each way along a rocky riverbed/stream-crossing trail — wear good shoes. No facilities at the lot.",
-          "note": "Historic pool hidden in a valley. Lukewarm (not hot), rough/basic changing rooms. A quiet, unhurried wild soak — budget the 20-min walk each way on top of pool time."
+          "note": "Historic pool hidden in a valley. Lukewarm (not hot), rough/basic changing rooms. Trimmed to ~75 min (incl. the 15–20 min walk each way) so the day lands on a 22:30 bed — it's a quick wild dip rather than a long lounge, which fits since you've got the long Secret Lagoon soak this evening. Skip it entirely if you'd rather sleep in."
         },
         {
           "nm": "Drive: Seljavallalaug → Selfoss",
-          "arrive": "14:40",
+          "arrive": "13:55",
           "duration": 75,
           "kind": "drive",
           "ll": [
@@ -608,7 +608,7 @@
         },
         {
           "nm": "Lunch in Selfoss",
-          "arrive": "15:55",
+          "arrive": "15:10",
           "duration": 60,
           "kind": "meal",
           "ll": [
@@ -619,7 +619,7 @@
         },
         {
           "nm": "Bónus Selfoss (resupply)",
-          "arrive": "16:55",
+          "arrive": "16:10",
           "duration": 25,
           "kind": "logistics",
           "ll": [
@@ -630,7 +630,7 @@
         },
         {
           "nm": "Drive: Selfoss → Kerið Crater",
-          "arrive": "17:20",
+          "arrive": "16:35",
           "duration": 15,
           "kind": "drive",
           "ll": [
@@ -641,7 +641,7 @@
         },
         {
           "nm": "Kerið Crater",
-          "arrive": "17:35",
+          "arrive": "16:50",
           "duration": 60,
           "kind": "activity",
           "ll": [
@@ -655,7 +655,7 @@
         },
         {
           "nm": "Drive: Kerið → Secret Lagoon (Flúðir)",
-          "arrive": "18:35",
+          "arrive": "17:50",
           "duration": 30,
           "kind": "drive",
           "ll": [
@@ -666,7 +666,7 @@
         },
         {
           "nm": "Secret Lagoon (Flúðir)",
-          "arrive": "19:05",
+          "arrive": "18:20",
           "duration": 195,
           "kind": "soak",
           "ll": [
@@ -681,7 +681,7 @@
         },
         {
           "nm": "Dinner in Flúðir",
-          "arrive": "22:20",
+          "arrive": "21:35",
           "duration": 60,
           "kind": "meal",
           "ll": [
@@ -692,7 +692,7 @@
         },
         {
           "nm": "Camp at Flúðir (Secret Lagoon)",
-          "arrive": "23:20",
+          "arrive": "22:35",
           "duration": 0,
           "kind": "sleep",
           "ll": [
