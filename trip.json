@@ -13,7 +13,7 @@
     "budget": {
       "note": "Rough per-person on-the-ground cost (excludes flights + camper rental). Iceland removed fuel taxes Jan 2026, so diesel dropped to ~260 ISK/L. Skip the Camping Card — not worth it under ~10 nights.",
       "perPerson": {
-        "bluLagoon": "$100–130 (the big one — BOOK NOW, sells out)",
+        "skyLagoon": "$75–95 (Sér pass — full 7-step Skjól Ritual; book ahead)",
         "secretLagoon": "$33",
         "campsites4nights": "~$55 ($12–16/night × 4 + tourist tax)",
         "parkingFees": "~$30 (7 paid lots × ~$7, split across the car)",
@@ -25,14 +25,14 @@
         "fuel": "~$250–300 for ~1,300 km (split among the group)"
       },
       "mustBookAhead": [
-        "Blue Lagoon (3–4 weeks — sells out)",
+        "Sky Lagoon Sér pass / 7-step ritual (book a week+ ahead for July)",
         "Secret Lagoon (a day or two)",
         "Jökulsárlón boat tour if you want it (a few days)"
       ]
     },
     "logistics": [
       "Day 1: after a 9:30 AM landing you won't be on the road until ~11:30 AM (peak-summer customs + camper-depot shuttle). No firm plans before midday.",
-      "Blue Lagoon is on Day 1 (arrival) — 20 min from KEF, the recommended & only feasible slot given the early departure. Book ~12:00 PM entry as a buffer.",
+      "Sky Lagoon is on Day 1 (arrival) — ~40 min NE of the depot toward Reykjavík (an out-and-back spur, opposite the South Coast), chosen for its 7-step Skjól Ritual + ocean infinity edge. Book a midday SÉR slot (~12:30) as a buffer against customs/pickup delays.",
       "LATE-EVENING RHYTHM (Days 1–3): early-July daylight runs ~03:10 sunrise to ~23:50 sunset and never gets dark, so Days 1–3 deliberately run into the long evening — the last real activity ends ~22:00 in the low midnight-sun light, then a short drive/wind-down, bedtime ~23:30, and a sleep-in to ~08:30 wake (no alarms). Day 1 still starts 09:30 (fixed 09:30 landing); Days 2–3 start ~09:30/10:30 off an ~08:30 wake plus morning routine + drive to the first stop.",
       "SLEEP RULE: 9 hours of sleep every night, preserved on the late shift. Each day's `overnight` has an explicit bedtime/wake/sleepHours block, and the next day's dayStart leaves room for 9h sleep + morning routine + drive to the first stop. Days 1–3: bed ~23:30 → wake ~08:30 (9h). The app warns (amber/red) if editing durations pushes bedtime so late that 9h before the required wake becomes impossible.",
       "TRADEOFF — last night (Jul 4→5) stays EARLY: the 07:30 camper drop (at the Fitjabraut depot, ~5 min from KEF) forces a ~06:00 wake, so to still get 9h you go to bed ~21:00. Day 4 (Golden Circle) is therefore the exception to the late rhythm — it starts early (09:00, off a 07:30 wake on Night 3) and winds down ~19:00 at Reykjadalur (with dinner in Hveragerði) so you're at the Keflavík base by ~20:30 and in bed by 21:00. Night 3's overnight (bed 22:30 / wake 07:30) is the bridge: it's earlier than Days 1–2 precisely so Day 4 can start early. This is the one night 9h forces an early bedtime.",
@@ -42,7 +42,7 @@
   "days": [
     {
       "n": 1,
-      "title": "Arrival, Blue Lagoon & Waterfalls",
+      "title": "Arrival, Sky Lagoon & Waterfalls",
       "date": "TUE 1 JUL",
       "dayStart": "09:30",
       "daylight": {
@@ -60,7 +60,7 @@
         "sleepHours": 9,
         "note": "Night 1 base — large, clean campground in Vík. Late-evening rhythm: in after Skógafoss, wind down, bed ~23:30 → wake 08:30 (9h). Reynisfjara is 10 min away, so a 09:00 Day-2 start is relaxed."
       },
-      "narr": "Land 9:30 AM, clear customs, ride to the depot and pick up the camper (~11:30 AM). Soak off the red-eye at the Blue Lagoon with a lobster-soup lunch in Grindavík, then head east on Route 1 for two of the South Coast's biggest waterfalls before the black-sand coast at Vík. Easy first day — you'll be jet-lagged, and the long evening light means no rush.",
+      "narr": "Land 9:30 AM, clear customs, ride to the depot and pick up the camper (~11:30 AM). Soak off the red-eye at Sky Lagoon — the full 7-step Skjól Ritual with an infinity edge over the Atlantic — then point the camper east on Route 1, grabbing a late lunch + resupply in Selfoss before two of the South Coast's biggest waterfalls and the black-sand coast at Vík. Easy first day — you'll be jet-lagged, and the long evening light means no rush. (Sky Lagoon is a NE spur toward Reykjavík, opposite the South Coast, so expect a bit more arrival-day driving.)",
       "stops": [
         {
           "nm": "Keflavík Airport (KEF) — land & clear customs",
@@ -84,68 +84,44 @@
           ],
           "cost": "taxi to depot ~5,000–7,000 ISK",
           "book": "must",
-          "note": "🚐 PICK UP THE CAMPER — booking ref PAUT2577, Reykjavik Depot, Fitjabraut 3, 260 Keflavík (~5 min from terminal). NOTE: no complimentary airport shuttle from this depot — take a taxi/rideshare from the terminal front. At the depot: paperwork, insurance review, vehicle walkthrough + damage inspection (📸 photograph all existing dents before signing). Peak-July pickups can run slow (1–2 hr waits reported) — budget ~75 min and don't book a tight Blue Lagoon slot. Aim wheels-on-road ~11:45."
+          "note": "🚐 PICK UP THE CAMPER — booking ref PAUT2577, Reykjavik Depot, Fitjabraut 3, 260 Keflavík (~5 min from terminal). NOTE: no complimentary airport shuttle from this depot — take a taxi/rideshare from the terminal front. At the depot: paperwork, insurance review, vehicle walkthrough + damage inspection (📸 photograph all existing dents before signing). Peak-July pickups can run slow (1–2 hr waits reported) — budget ~75 min and don't book a tight Sky Lagoon slot. Aim wheels-on-road ~11:45."
         },
         {
-          "nm": "Drive: Depot → Blue Lagoon",
+          "nm": "Drive: Depot → Sky Lagoon",
           "arrive": "11:45",
-          "duration": 20,
+          "duration": 40,
           "kind": "drive",
           "ll": [
-            63.93,
-            -22.535
+            64.05,
+            -22.25
           ],
-          "note": "Route 41 (Reykjanesbraut) → Route 43 (Grindavíkurvegur). ~22 km, ~20 min. If Rte 43 is closed for seismic activity, detour adds ~25 min — check road status that morning."
+          "note": "Route 41 (Reykjanesbraut) northeast toward the capital area, then south into Kópavogur. ~42 km, ~40 min. NOTE: Sky Lagoon sits NE of KEF toward Reykjavík — the opposite direction from the South Coast — so this is an out-and-back spur. Worth it for the post-red-eye soak."
         },
         {
-          "nm": "Blue Lagoon",
-          "arrive": "12:05",
-          "duration": 210,
+          "nm": "Sky Lagoon",
+          "arrive": "12:25",
+          "duration": 165,
           "kind": "soak",
           "ll": [
-            63.8807176,
-            -22.4472963
+            64.1164891,
+            -21.9462908
           ],
-          "cost": "~$100–130 pp",
+          "cost": "~$75–95 pp (Sér / 7-step ritual)",
           "book": "must",
-          "bookNote": "MANDATORY timed entry — walk-ins never accepted. Sells out 3–4 weeks ahead for July. Comfort ticket from ~11,990 ISK but July midday slots run higher (dynamic pricing); cheapest slots are 8am or after 8pm Tue–Thu. Book NOW.",
-          "parking": "Free, spacious on-site lot (cars + EV charging); ~5 min walk through the lava field to reception. No parking fee.",
-          "note": "Moved to arrival day — perfect post-red-eye soak. Book ~12:15 entry for buffer against customs/pickup delays. On-site luggage storage (~$6/bag) or leave bags locked in the camper. A long ~3.5 hr soak to reset, then lunch in Grindavík before heading east."
+          "bookNote": "Book the SÉR pass — it includes the full 7-step Skjól Ritual + a private changing suite. Timed entry, reserve ahead for July (less prone to selling out than Blue Lagoon, but lock a midday slot). The 7 steps: 1) warm lagoon soak → 2) cold plunge → 3) sauna (ocean-view) → 4) cold mist → 5) sea-salt body scrub → 6) steam room → 7) shower. Allow ~2–2.5 hrs to do the ritual unhurried.",
+          "parking": "Free on-site lot, short walk to reception.",
+          "note": "Post-red-eye reset with an INFINITY edge over the Atlantic — the signature shot. Do the full 7-step Skjól Ritual to shake off the flight. Book ~12:30 entry for buffer against customs/pickup delays. Grab a bite at the on-site Smakk Bar (Icelandic small plates) or eat in Selfoss on the drive east. Then it's a ~2 hr push to the South Coast."
         },
         {
-          "nm": "Drive: Blue Lagoon → Grindavík",
-          "arrive": "15:35",
-          "duration": 8,
+          "nm": "Drive: Sky Lagoon → Seljalandsfoss",
+          "arrive": "15:10",
+          "duration": 120,
           "kind": "drive",
           "ll": [
-            63.848,
-            -22.433
+            63.9,
+            -21.0
           ],
-          "note": "Route 43 south into Grindavík. ~6 km, ~6–8 min."
-        },
-        {
-          "nm": "Lunch: Bryggjan, Grindavík",
-          "arrive": "15:43",
-          "duration": 50,
-          "kind": "meal",
-          "ll": [
-            63.8378,
-            -22.4339
-          ],
-          "cost": "$$ (cafe)",
-          "book": "no",
-          "note": "🦞 LUNCH — famous lobster soup, harbourside cafe (reopened June 2025), better than the on-site Blue Lagoon cafés. Eat after your soak, then fuel up before the long drive east. (Reliable fallback: Max's @ Northern Light Inn, ~4 min away.)"
-        },
-        {
-          "nm": "Drive: Grindavík → Seljalandsfoss",
-          "arrive": "16:33",
-          "duration": 145,
-          "kind": "drive",
-          "ll": [
-            63.74,
-            -21.2
-          ],
-          "note": "Route 43 → Route 41 → Route 1 / Ring Road east past Selfoss & Hvolsvöllur. ~165 km, ~2h25m. Good spot to top off fuel in Selfoss."
+          "note": "South out of Kópavogur to Route 1 / Ring Road, then east past Selfoss & Hvolsvöllur. ~120 km, ~2 hrs. Stop in SELFOSS (~45 min in) for a late lunch + fuel + grocery resupply — last big town before the South Coast. (Tryggvaskáli or Kaffi Krús are solid lunch spots.)"
         },
         {
           "nm": "Seljalandsfoss",
@@ -901,7 +877,7 @@
           "cost": "Free river · ~$5 (700 ISK) parking",
           "book": "no",
           "parking": "Pay-parking at the Hveragerði trailhead lot (north edge of town, end of the road past the campsite). Pay ~700 ISK via the Parka app or kiosk. From the lot it's a ~3 km / ~45-min uphill hike each way to the soakable stretch of river — wear proper shoes, bring a towel; boardwalk + changing screens at the river.",
-          "note": "Naturally hot river up a ~3 km uphill hike. ⚠️ TRIMMED TO ~75 min for the tight pre-flight night — that's only a QUICK taste (the full hike is ~45 min uphill EACH WAY). Realistic options in 75 min: hike partway up the geothermal valley and turn back, OR do a fast up-soak-down if you're quick hikers and skip lingering. If you want the full hot-river experience, you'd need ~2.5–3 hrs — but that blows the 21:00 bed before the 06:00 wake. Given you've already soaked at Blue Lagoon, Secret Lagoon & Seljavallalaug, a quick look here is a fair trade. Pay ~700 ISK parking via Parka."
+          "note": "Naturally hot river up a ~3 km uphill hike. ⚠️ TRIMMED TO ~75 min for the tight pre-flight night — that's only a QUICK taste (the full hike is ~45 min uphill EACH WAY). Realistic options in 75 min: hike partway up the geothermal valley and turn back, OR do a fast up-soak-down if you're quick hikers and skip lingering. If you want the full hot-river experience, you'd need ~2.5–3 hrs — but that blows the 21:00 bed before the 06:00 wake. Given you've already soaked at Sky Lagoon, Secret Lagoon & Seljavallalaug, a quick look here is a fair trade. Pay ~700 ISK parking via Parka."
         },
         {
           "nm": "Drive: Reykjadalur trailhead → Ölverk Pizza",

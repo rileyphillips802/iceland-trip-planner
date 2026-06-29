@@ -11,18 +11,6 @@
       "photos/ChIJn3mr4vz9KUkRzSjDFQqN-Cc_3.jpg"
     ]
   },
-  "Blue Lagoon": {
-    "pid": "ChIJDd_3r2Yd1kgRbvAWRIl6dPM",
-    "rating": 4.6,
-    "count": 31951,
-    "cat": "Public Bath",
-    "photos": [
-      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_0.jpg",
-      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_1.jpg",
-      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_2.jpg",
-      "photos/ChIJDd_3r2Yd1kgRbvAWRIl6dPM_3.jpg"
-    ]
-  },
   "Seljalandsfoss": {
     "pid": "ChIJFSTv6K0e10gRjRcJUiDmAa4",
     "rating": 4.8,
@@ -249,6 +237,18 @@
       "photos/ChIJgTsGJPcD1kgRtE4QDqW47zY_1.jpg",
       "photos/ChIJgTsGJPcD1kgRtE4QDqW47zY_2.jpg",
       "photos/ChIJgTsGJPcD1kgRtE4QDqW47zY_3.jpg"
+    ]
+  },
+  "Sky Lagoon": {
+    "pid": "ChIJpyUozoYL1kgREGm6RWPXuio",
+    "rating": 4.7,
+    "count": 9006,
+    "cat": "Geothermal Spa",
+    "photos": [
+      "photos/ChIJpyUozoYL1kgREGm6RWPXuio_0.jpg",
+      "photos/ChIJpyUozoYL1kgREGm6RWPXuio_1.jpg",
+      "photos/ChIJpyUozoYL1kgREGm6RWPXuio_2.jpg",
+      "photos/ChIJpyUozoYL1kgREGm6RWPXuio_3.jpg"
     ]
   }
 }

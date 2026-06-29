@@ -32,6 +32,24 @@
   @media(max-width:760px){.card{width:calc(100vw - 28px);right:14px;left:14px;top:auto;bottom:14px;height:70vh;}
     .daytabs{max-width:calc(100% - 36px);}}
 
+  /* mobile collapse toggle — a chevron pinned to the card's top-right; hidden on desktop */
+  .cardtoggle{display:none;}
+  @media(max-width:760px){
+    .cardtoggle{display:flex;position:absolute;z-index:6;top:8px;left:8px;width:34px;height:34px;
+      align-items:center;justify-content:center;border:none;border-radius:50%;cursor:pointer;
+      background:rgba(0,0,0,.5);color:#fff;font-size:16px;line-height:1;backdrop-filter:blur(6px);}
+    .cardtoggle svg{width:16px;height:16px;transition:transform .2s;}
+    /* COLLAPSED: card shrinks to a compact peek so the map shows. Photo banner trimmed,
+       scroll body + footer hidden; only the title/time strip (rendered first in .cb) peeks. */
+    body.cardmin .card{height:auto;max-height:148px;}
+    body.cardmin .card .ph{height:96px;}
+    body.cardmin .card .cb{max-height:52px;overflow:hidden;padding-bottom:.4rem;
+      -webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent);}
+    body.cardmin .card .fnav{display:none;}
+    body.cardmin .card .legcard{padding:.6rem 1rem;}
+    body.cardmin .cardtoggle svg{transform:rotate(180deg);}
+  }
+
   /* photo banner — FIXED height so card never grows */
   .ph{position:relative;width:100%;height:236px;flex:none;background:#0e1318;overflow:hidden;}
   .ph .img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .35s;}
@@ -384,7 +402,7 @@ function initMap(){
     }else{
       el.innerHTML='<div class="dotpin" style="background:'+kmeta(s).color+'"></div>';
     }
-    el.addEventListener('click',function(ev){ev.stopPropagation();showStop(s._idx);});
+    el.addEventListener('click',function(ev){ev.stopPropagation();document.body.classList.remove('cardmin');showStop(s._idx);});
     const ov=new AdvancedHTML(s.ll[0],s.ll[1],el); ov.setMap(map);
     pinEls[s._idx]={el:el,ov:ov,stop:s};
   });
@@ -473,7 +491,25 @@ function step(dir){
   showStop(day.stops[np]._idx);
 }
 
-function renderCard(){const card=document.getElementById('card');card.style.display='flex';if(view.mode==='day-intro')renderIntro(card);else renderStop(card);}
+function renderCard(){const card=document.getElementById('card');card.style.display='flex';if(view.mode==='day-intro')renderIntro(card);else renderStop(card);addCardToggle(card);}
+
+/* Mobile collapse/expand chevron. Re-added after every render (innerHTML is rebuilt).
+   Toggles body.cardmin, which the mobile CSS uses to shrink the card to a peek so the
+   map is visible. Default state is collapsed on mobile (set once in boot). */
+function addCardToggle(card){
+  const btn=document.createElement('button');
+  btn.className='cardtoggle'; btn.id='cardToggle';
+  btn.setAttribute('aria-label','Expand or collapse card');
+  btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"></polyline></svg>';
+  btn.onclick=function(e){e.stopPropagation();document.body.classList.toggle('cardmin');};
+  card.appendChild(btn);
+  // Tapping the peek (when collapsed) also expands — natural on mobile.
+  card.onclick=function(e){
+    if(document.body.classList.contains('cardmin') && !e.target.closest('.cardtoggle')){
+      document.body.classList.remove('cardmin');
+    }
+  };
+}
 
 /* Sunrise/sunset readout for a day, plain text: "☀ Sunrise 3:07 AM · Sunset 11:54 PM". */
 function daylightHtml(day){
@@ -730,6 +766,8 @@ window.__start=function(){defineOverlay();initMap();};
 
 /* Boot: fetch trip.json + enrichment.json FIRST, build DAYS, THEN load Maps. */
 async function boot(){
+  // On mobile, start with the card collapsed to a peek so the map is visible.
+  if(window.matchMedia('(max-width:760px)').matches) document.body.classList.add('cardmin');
   try{
     const [trip,enrichment]=await Promise.all([
       fetch('trip.json').then(r=>{if(!r.ok)throw new Error('trip.json '+r.status);return r.json();}),
